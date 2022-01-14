@@ -16,18 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yzJ-E4-lIb">
-                                <rect key="frame" x="20" y="184" width="374" height="155"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yzJ-E4-lIb">
+                                <rect key="frame" x="20" y="184" width="374" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTU-Oy-b11" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="dHq-1B-749"/>
+                                            <constraint firstAttribute="height" constant="85" id="dHq-1B-749"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkU-xM-RhI" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="85" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="95" width="374" height="85"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -36,26 +36,29 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-Ez-IjV">
-                                <rect key="frame" x="20" y="692" width="374" height="150"/>
+                                <rect key="frame" x="20" y="688.5" width="374" height="153.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYh-Xf-fe4" userLabel="Login" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="7pw-yV-YRD"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="72"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login">
-                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zCC-VU-zhq"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un8-vU-cLB" userLabel="Register">
-                                        <rect key="frame" x="0.0" y="80" width="374" height="70"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un8-vU-cLB" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="374" height="71.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Register">
-                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tDF-IX-f72"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -75,6 +78,7 @@
                             <constraint firstItem="5Bg-6e-raA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="2rc-jv-UH4"/>
                             <constraint firstItem="5Bg-6e-raA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5fH-83-mQt"/>
                             <constraint firstItem="UhM-Ez-IjV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5lN-nD-Fpw"/>
+                            <constraint firstItem="HYh-Xf-fe4" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="EG7-Tq-3Gq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UhM-Ez-IjV" secondAttribute="trailing" constant="20" id="KFE-3Y-Eh4"/>
                             <constraint firstItem="yzJ-E4-lIb" firstAttribute="top" secondItem="5Bg-6e-raA" secondAttribute="bottom" constant="30" id="UnG-x3-FZU"/>
                             <constraint firstItem="yzJ-E4-lIb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hmY-l0-0yZ"/>
@@ -83,6 +87,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AD0-9J-v2T"/>
+                    <connections>
+                        <outlet property="loginButton" destination="HYh-Xf-fe4" id="gZI-Je-vMo"/>
+                        <outlet property="passwordTextInput" destination="PkU-xM-RhI" id="F3l-Jc-V2k"/>
+                        <outlet property="registerButton" destination="un8-vU-cLB" id="Z1x-N0-hvr"/>
+                        <outlet property="usernameTextInput" destination="CTU-Oy-b11" id="XPF-t8-Gi3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

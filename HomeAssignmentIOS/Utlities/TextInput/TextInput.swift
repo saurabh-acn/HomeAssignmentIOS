@@ -9,16 +9,27 @@ import UIKit
 
 class TextInput: UITextField {
 
-    @IBOutlet weak var textInputBorderView: UIView!
+    @IBOutlet private weak var textInputBorderView: UIView!
     @IBOutlet weak var placeHolderLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet private weak var errorLabel: UILabel!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     /// TextInput XIB name
     private let nibName = "TextInput"
+    
+    var errorString: String? {
+        didSet {
+            if let error = errorString {
+                errorLabel.isHidden = false
+                errorLabel.text = error
+            } else {
+                errorLabel.isHidden = true
+            }
+        }
+    }
     
      /*Intialzies the control by deserializing it
      - parameter aDecoder the object to deserialize the control from
@@ -29,12 +40,14 @@ class TextInput: UITextField {
         self.loadSubview()
         self.defaultSettings()
     }
+    
     public func loadSubview() {
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
     }
+    
     /// Load view from XIB - return view
     private func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))

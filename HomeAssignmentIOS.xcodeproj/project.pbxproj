@@ -11,6 +11,10 @@
 		8684BF2A279179F500BDABF0 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684BF27279179F500BDABF0 /* TextInput.swift */; };
 		8684BF2B279179F500BDABF0 /* TextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8684BF28279179F500BDABF0 /* TextInput.xib */; };
 		8684BF2C279179F500BDABF0 /* TextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8684BF28279179F500BDABF0 /* TextInput.xib */; };
+		8684BF2F27917D8D00BDABF0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684BF2E27917D8D00BDABF0 /* RoundButton.swift */; };
+		8684BF3027917D8D00BDABF0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684BF2E27917D8D00BDABF0 /* RoundButton.swift */; };
+		86A671A52791854200B2AD76 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A671A42791854200B2AD76 /* Validators.swift */; };
+		86A671A62791854200B2AD76 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A671A42791854200B2AD76 /* Validators.swift */; };
 		86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */; };
 		86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */; };
 		86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1F27901ED90042F2D2 /* LoginViewController.swift */; };
@@ -40,6 +44,8 @@
 /* Begin PBXFileReference section */
 		8684BF27279179F500BDABF0 /* TextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		8684BF28279179F500BDABF0 /* TextInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInput.xib; sourceTree = "<group>"; };
+		8684BF2E27917D8D00BDABF0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		86A671A42791854200B2AD76 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		86DEBD1827901ED90042F2D2 /* HomeAssignmentIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAssignmentIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 		8684BF2427914F6200BDABF0 /* Utlities */ = {
 			isa = PBXGroup;
 			children = (
+				86A671A42791854200B2AD76 /* Validators.swift */,
+				8684BF2D27917D7E00BDABF0 /* RoundButton */,
 				8684BF262791799400BDABF0 /* TextInput */,
 			);
 			path = Utlities;
@@ -132,6 +140,14 @@
 				8684BF28279179F500BDABF0 /* TextInput.xib */,
 			);
 			path = TextInput;
+			sourceTree = "<group>";
+		};
+		8684BF2D27917D7E00BDABF0 /* RoundButton */ = {
+			isa = PBXGroup;
+			children = (
+				8684BF2E27917D8D00BDABF0 /* RoundButton.swift */,
+			);
+			path = RoundButton;
 			sourceTree = "<group>";
 		};
 		86DEBD0F27901ED90042F2D2 = {
@@ -311,6 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */,
+				8684BF2F27917D8D00BDABF0 /* RoundButton.swift in Sources */,
+				86A671A52791854200B2AD76 /* Validators.swift in Sources */,
 				86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */,
 				86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */,
 				8684BF29279179F500BDABF0 /* TextInput.swift in Sources */,
@@ -321,6 +339,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A671A62791854200B2AD76 /* Validators.swift in Sources */,
+				8684BF3027917D8D00BDABF0 /* RoundButton.swift in Sources */,
 				86DEBD3327901EDC0042F2D2 /* HomeAssignmentIOSTests.swift in Sources */,
 				8684BF2A279179F500BDABF0 /* TextInput.swift in Sources */,
 			);
