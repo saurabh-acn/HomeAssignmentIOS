@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CustomErrorView.swift
 //  HomeAssignmentIOS
 //
 //  Created by saurabh.a.rana on 15/01/22.

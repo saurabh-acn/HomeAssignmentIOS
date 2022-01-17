@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextInput: UITextField {
+class TextInput: UIView {
 
     @IBOutlet private weak var textInputBorderView: UIView!
     @IBOutlet weak var placeHolderLabel: UILabel!

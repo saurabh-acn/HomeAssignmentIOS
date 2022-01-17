@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kGL-hJ-Z5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b6o-2V-eOC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,34 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="WLd-df-vG1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kGL-hJ-Z5n" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fyn-8N-9ny">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SWP-h8-iDE" kind="show" id="0sl-kB-QXz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qhp-gd-WJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-439.13043478260875" y="132.58928571428572"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="eNt-If-6wC">
             <objects>
                 <viewController id="SWP-h8-iDE" customClass="LoginViewController" customModule="HomeAssignmentIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcI-AH-VVa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pg9-bI-rUL">
-                                <rect key="frame" x="20" y="106" width="374" height="180"/>
+                                <rect key="frame" x="20" y="194" width="374" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zB-c6-EvJ" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
@@ -54,17 +36,17 @@
                                 </constraints>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bds-ph-y9O" customClass="CustomErrorView" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="321" width="374" height="80"/>
+                                <rect key="frame" x="20" y="409" width="374" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="w2W-jN-bka"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EPc-A9-Ixx">
-                                <rect key="frame" x="20" y="643.5" width="374" height="144.5"/>
+                                <rect key="frame" x="20" y="688.5" width="374" height="153.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Dp-1db" userLabel="Login" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="72"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
@@ -75,14 +57,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X92-Xh-JfR" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="77" width="374" height="67.5"/>
+                                        <rect key="frame" x="0.0" y="82" width="374" height="71.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Register">
                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="registerAction:" destination="SWP-h8-iDE" eventType="touchUpInside" id="BNC-g2-nk9"/>
+                                            <action selector="registerAction:" destination="SWP-h8-iDE" eventType="touchUpInside" id="9s4-ng-5Jk"/>
+                                            <segue destination="7kN-6j-Sy8" kind="show" id="INa-Po-GkB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -91,7 +74,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wU-Lx-ElX">
-                                <rect key="frame" x="20" y="40" width="80" height="36"/>
+                                <rect key="frame" x="20" y="128" width="374" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -107,16 +90,17 @@
                             <constraint firstItem="7wU-Lx-ElX" firstAttribute="top" secondItem="YKB-dN-X2A" secondAttribute="top" constant="40" id="DCq-hp-MCY"/>
                             <constraint firstItem="EPc-A9-Ixx" firstAttribute="leading" secondItem="YKB-dN-X2A" secondAttribute="leading" constant="20" id="Elm-wu-T4Q"/>
                             <constraint firstItem="tLP-Dp-1db" firstAttribute="height" secondItem="VcI-AH-VVa" secondAttribute="height" multiplier="0.08" id="EoL-iO-XBd"/>
+                            <constraint firstItem="bds-ph-y9O" firstAttribute="top" secondItem="Pg9-bI-rUL" secondAttribute="bottom" constant="35" id="Mep-GY-HeD"/>
                             <constraint firstItem="Pg9-bI-rUL" firstAttribute="top" secondItem="7wU-Lx-ElX" secondAttribute="bottom" constant="30" id="WGo-zJ-pH8"/>
+                            <constraint firstItem="YKB-dN-X2A" firstAttribute="trailing" secondItem="7wU-Lx-ElX" secondAttribute="trailing" constant="20" id="dj0-bj-aB2"/>
                             <constraint firstItem="Pg9-bI-rUL" firstAttribute="leading" secondItem="YKB-dN-X2A" secondAttribute="leading" constant="20" id="fJO-N9-jNh"/>
-                            <constraint firstItem="bds-ph-y9O" firstAttribute="top" secondItem="Pg9-bI-rUL" secondAttribute="bottom" constant="35" id="tKV-Ko-YUx"/>
                             <constraint firstItem="7wU-Lx-ElX" firstAttribute="leading" secondItem="YKB-dN-X2A" secondAttribute="leading" constant="20" id="u1h-V7-4Tb"/>
                             <constraint firstItem="YKB-dN-X2A" firstAttribute="trailing" secondItem="EPc-A9-Ixx" secondAttribute="trailing" constant="20" id="uOy-9a-WzM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7pN-gO-uSz"/>
                     <connections>
-                        <outlet property="errorView" destination="bds-ph-y9O" id="bQk-tV-lLS"/>
+                        <outlet property="errorView" destination="bds-ph-y9O" id="AVB-AI-Y2l"/>
                         <outlet property="loginButton" destination="tLP-Dp-1db" id="S2Y-Bp-UU4"/>
                         <outlet property="passwordTextInput" destination="Ped-2Y-Lfp" id="DZM-RQ-C2i"/>
                         <outlet property="registerButton" destination="X92-Xh-JfR" id="LrJ-hW-hjh"/>
@@ -124,6 +108,113 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mh0-3U-x3b" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381.1594202898552" y="132.58928571428572"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="WIW-95-fAZ">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kN-6j-Sy8" customClass="RegisterViewController" customModule="HomeAssignmentIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X3d-bZ-XRn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpo-HJ-aq0">
+                                <rect key="frame" x="20" y="88" width="121" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OzY-Gr-ypY">
+                                <rect key="frame" x="20" y="154" width="374" height="275"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jM-YS-vdK" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="vA4-lK-hCu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeJ-nG-Ibs" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="95" width="374" height="85"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="rnN-Gs-X2a"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8I-pt-rYr" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="190" width="374" height="85"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="2e4-3D-fBp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdw-wT-BgJ" customClass="CustomErrorView" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="464" width="374" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="KMC-nP-J2D"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKn-W8-7No" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="770.5" width="374" height="71.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="registerAction:" destination="7kN-6j-Sy8" eventType="touchUpInside" id="sui-dR-QBi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pKf-tB-47v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jKn-W8-7No" firstAttribute="leading" secondItem="pKf-tB-47v" secondAttribute="leading" constant="20" id="5uZ-pT-IgN"/>
+                            <constraint firstItem="pKf-tB-47v" firstAttribute="trailing" secondItem="OzY-Gr-ypY" secondAttribute="trailing" constant="20" id="74d-ol-Apc"/>
+                            <constraint firstItem="Tdw-wT-BgJ" firstAttribute="top" secondItem="OzY-Gr-ypY" secondAttribute="bottom" constant="35" id="7cl-r9-Z4R"/>
+                            <constraint firstItem="mpo-HJ-aq0" firstAttribute="leading" secondItem="pKf-tB-47v" secondAttribute="leading" constant="20" id="8Jo-dv-sUt"/>
+                            <constraint firstItem="OzY-Gr-ypY" firstAttribute="top" secondItem="mpo-HJ-aq0" secondAttribute="bottom" constant="30" id="Du2-f1-b6Z"/>
+                            <constraint firstItem="mpo-HJ-aq0" firstAttribute="top" secondItem="pKf-tB-47v" secondAttribute="top" id="HHJ-hx-UUT"/>
+                            <constraint firstItem="pKf-tB-47v" firstAttribute="trailing" secondItem="jKn-W8-7No" secondAttribute="trailing" constant="20" id="K02-mq-dM9"/>
+                            <constraint firstItem="Tdw-wT-BgJ" firstAttribute="leading" secondItem="pKf-tB-47v" secondAttribute="leading" constant="20" id="S50-Ez-NQg"/>
+                            <constraint firstItem="pKf-tB-47v" firstAttribute="trailing" secondItem="Tdw-wT-BgJ" secondAttribute="trailing" constant="20" id="U6q-8u-jhz"/>
+                            <constraint firstItem="OzY-Gr-ypY" firstAttribute="leading" secondItem="pKf-tB-47v" secondAttribute="leading" constant="20" id="VQ7-Z5-e9a"/>
+                            <constraint firstItem="jKn-W8-7No" firstAttribute="height" secondItem="X3d-bZ-XRn" secondAttribute="height" multiplier="0.08" id="hDB-6d-jpb"/>
+                            <constraint firstItem="pKf-tB-47v" firstAttribute="bottom" secondItem="jKn-W8-7No" secondAttribute="bottom" constant="20" id="iYm-dX-Z1h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gpw-9K-AR0"/>
+                    <connections>
+                        <outlet property="confirmTextInput" destination="b8I-pt-rYr" id="xDQ-42-fho"/>
+                        <outlet property="errorView" destination="Tdw-wT-BgJ" id="X2a-Tv-cuK"/>
+                        <outlet property="passwordTextInput" destination="MeJ-nG-Ibs" id="MXt-Qn-oHY"/>
+                        <outlet property="registerButton" destination="jKn-W8-7No" id="5yV-Vx-81d"/>
+                        <outlet property="usernameTextInput" destination="0jM-YS-vdK" id="DjK-ks-yO5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TLO-ws-yBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2286.9565217391305" y="132.58928571428572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mb5-sV-jbq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b6o-2V-eOC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OU1-IG-Pqv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SWP-h8-iDE" kind="relationship" relationship="rootViewController" id="4zX-Sg-f9z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TLh-n7-0aP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="471.01449275362324" y="132.58928571428572"/>
         </scene>
