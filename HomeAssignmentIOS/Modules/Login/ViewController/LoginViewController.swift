@@ -118,12 +118,12 @@ extension LoginViewController {
     private func clearTextInputs() {
         usernameTextInput.textField.text = nil
         passwordTextInput.textField.text = nil
-        usernameTextInput.textField.becomeFirstResponder()
         loginButton.selectedState = false
         registerButton.selectedState = false
         loginButton.layoutSubviews()
         registerButton.layoutSubviews()
         errorView.errorString = nil
+        view.endEditing(true)
     }
 }
 

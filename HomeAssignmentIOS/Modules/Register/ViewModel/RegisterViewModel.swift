@@ -21,10 +21,26 @@ class RegisterViewModel {
         }
     }
     
+    func validatePasswordTextInput(textInput: TextInput,
+                                   validationString: ValidationStrings,
+                                   completion: @escaping (Bool) -> Void) {
+        if !(textInput.textField.text?.isEmpty ?? true) {
+            Validators.validatePasswordTextInput(textInput: textInput,
+                                                 validationString: .passwordStrength) { [weak self] success in
+                guard let self = self else { return }
+                self.isValidated = success
+                completion(!success)
+            }
+        }
+    }
+    
     func validateConfirmPassword(password: TextInput,
                                  confirmPasword: TextInput,
                                  validationString: ValidationStrings) {
-        if !(password.textField.text?.isEmpty ?? true) && !(confirmPasword.textField.text?.isEmpty ?? true) {
+        if let passwordText = password.textField.text,
+           passwordText.count > 8,
+           let confirmPasswordText = confirmPasword.textField.text,
+           confirmPasswordText.count > 8 {
             Validators.confirmPasswordFields(password: password,
                                              confirmPasword: confirmPasword,
                                              validationString: .confirmPasswordError) { [weak self] success in
@@ -34,7 +50,9 @@ class RegisterViewModel {
         }
     }
     
-    func registerUser(username: String, password: String, completion: @escaping (RegisterModel?, String?) -> Void) {
+    func registerUser(username: String,
+                      password: String,
+                      completion: @escaping (RegisterModel?, String?) -> Void) {
         register(username: username,
                  password: password) { data, response, error in
             if error == nil {

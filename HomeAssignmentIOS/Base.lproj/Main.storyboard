@@ -152,10 +152,10 @@
                                 </subviews>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdw-wT-BgJ" customClass="CustomErrorView" customModule="HomeAssignmentIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="464" width="374" height="80"/>
+                                <rect key="frame" x="20" y="464" width="374" height="115"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="KMC-nP-J2D"/>
+                                    <constraint firstAttribute="height" constant="115" id="KMC-nP-J2D"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKn-W8-7No" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">

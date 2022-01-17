@@ -6,6 +6,7 @@ enum ValidationStrings: String {
     case confirmRequired = "Confirm Password is required"
     case confirmPasswordError = "Confirm Password not match"
     case payeeRequired = "Payee field is required"
+    case passwordStrength = "Password must be more than 8 characters, with at least one special character, one uppercase character and one numeric character"
 }
 
 class Validators {
@@ -19,6 +20,20 @@ class Validators {
         } catch(let error) {
             debugPrint(error)
             textInput.errorString = validationString.rawValue
+            validate(false)
+        }
+    }
+    
+    class func validatePasswordTextInput(textInput: TextInput,
+                                  validationString: ValidationStrings,
+                                  validate: @escaping (Bool) -> Void) {
+        do {
+            _ = try textInput.textField.validatedText(validationType: .password)
+            textInput.errorString = nil
+            validate(true)
+        } catch(let error) {
+            debugPrint(error)
+            textInput.errorString = nil
             validate(false)
         }
     }
@@ -64,8 +79,8 @@ enum VaildatorFactory {
 }
 
 enum ValidatorRegularExpression {
-    static let password = "^(?=.*[0-9!@#$%^&*])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9!@#$%^&*]{8,}$"
-    static let email = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
+    static let password = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"
+
 }
 
 struct RequiredFieldValidator: ValidatorConvertible {
@@ -98,24 +113,5 @@ struct PasswordValidator: ValidatorConvertible {
             throw ValidationError("Password must be more than 8 characters, with at least one special character, one uppercase character and one numeric character")
         }
         return value
-    }
-}
-
-extension String {
-    func hasAlphaNumeric() -> Bool {
-        return true
-    }
-    
-    func hasOnlyNumbers() -> Bool {
-        return !isEmpty && range(of: "[^0-9]", options: .regularExpression) == nil
-    }
-    
-    func hasOnlyAlphabets() -> Bool {
-        return !isEmpty && range(of: "[^a-zA-Z]", options: .regularExpression) == nil
-    }
-    
-    func validatedText(validationType: ValidatorType) throws -> String {
-        let validator = VaildatorFactory.validatorFor(type: validationType)
-        return try validator.validated(self)
     }
 }

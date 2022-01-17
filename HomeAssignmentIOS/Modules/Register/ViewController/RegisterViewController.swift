@@ -58,10 +58,8 @@ class RegisterViewController: UIViewController {
         registerButton.selectedState = true
         validateTextInputs()
         
-        if viewModel.textInputValidationStatus {
+        if viewModel.textInputValidationStatus && errorView.errorString == nil {
             userRegistration()
-        } else {
-            errorView.errorString = nil
         }
     }
     
@@ -81,6 +79,20 @@ extension RegisterViewController {
                                      validationString: .passwordRequired)
         viewModel.validateTextInputs(textInput: confirmTextInput,
                                      validationString: .confirmRequired)
+        viewModel.validatePasswordTextInput(textInput: passwordTextInput,
+                                            validationString: .passwordStrength) { [weak self] validationStatus in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.errorView.errorString = validationStatus ? ValidationStrings.passwordStrength.rawValue : nil
+            }
+        }
+        viewModel.validatePasswordTextInput(textInput: confirmTextInput,
+                                            validationString: .passwordStrength) { [weak self] validationStatus in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.errorView.errorString = validationStatus ? ValidationStrings.passwordStrength.rawValue : nil
+            }
+        }
         viewModel.validateConfirmPassword(password: passwordTextInput,
                                           confirmPasword: confirmTextInput,
                                           validationString: .confirmPasswordError)
