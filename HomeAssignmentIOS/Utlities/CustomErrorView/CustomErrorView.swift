@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class CustomErrorView: UIView {
-    
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var errorLabel: UILabel!
     

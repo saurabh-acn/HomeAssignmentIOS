@@ -10,7 +10,6 @@ import UIKit
 import Security
 
 class KeychainService {
-    
     class func saveCredentials(username: String,
                                password: String) {
         // Set username and password

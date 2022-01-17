@@ -8,6 +8,19 @@
 import Foundation
 
 class TransferViewModel {
+    private var isValidated = false
+    var textInputValidationStatus: Bool {
+        return isValidated
+    }
+    
+    func validateTextInputs(textInput: TextInput,
+                            validationString: ValidationStrings) {
+        Validators.validateTextInputs(textInput: textInput,
+                                      validationString: validationString) { [weak self] success in
+            guard let self = self else { return }
+            self.isValidated = success
+        }
+    }
     
     func getPayeesList(completion: @escaping (PayeesModel?,
                                               String?) -> Void) {

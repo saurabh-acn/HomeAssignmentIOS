@@ -5,6 +5,7 @@ enum ValidationStrings: String {
     case passwordRequired = "Password is required"
     case confirmRequired = "Confirm Password is required"
     case confirmPasswordError = "Confirm Password not match"
+    case payeeRequired = "Payee field is required"
 }
 
 class Validators {

@@ -8,7 +8,6 @@
 import Foundation
 
 struct Constants {
-    
     // Placeholder Strings
     static let username = "Username"
     static let password = "Password"
@@ -41,6 +40,7 @@ struct Constants {
     
     // Image Asset
     static let backButtonImage = "BackButton"
+    static let downButtonImage = "DownArrow"
     
     // Strings
     static let done = "Done"

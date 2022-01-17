@@ -12,4 +12,14 @@ extension UITextField {
         let validator = VaildatorFactory.validatorFor(type: validationType)
         return try validator.validated(self.text!)
     }
+    
+    func setLeftImage(imageName:String) {
+        let imageView = UIImageView(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: 10,
+                                                  height: 10))
+        imageView.image = UIImage(named: imageName)
+        self.rightView = imageView
+        self.rightViewMode = .always
+    }
 }

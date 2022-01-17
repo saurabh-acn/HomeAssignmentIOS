@@ -8,7 +8,6 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-    
     @IBOutlet weak var usernameTextInput: TextInput!
     @IBOutlet weak var passwordTextInput: TextInput!
     @IBOutlet weak var confirmTextInput: TextInput!

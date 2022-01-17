@@ -370,8 +370,8 @@
 		86DEBD1A27901ED90042F2D2 /* HomeAssignmentIOS */ = {
 			isa = PBXGroup;
 			children = (
-				86A6724C2795705500B2AD76 /* TableViewCells */,
 				8684BF2227914F5200BDABF0 /* Modules */,
+				86A6724C2795705500B2AD76 /* TableViewCells */,
 				8684BF2327914F5B00BDABF0 /* Services */,
 				8684BF2427914F6200BDABF0 /* Utlities */,
 				86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */,

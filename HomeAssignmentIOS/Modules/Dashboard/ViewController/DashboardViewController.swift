@@ -8,7 +8,6 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerViewBackgroundView: UIView!
     @IBOutlet weak var accountBalance: UILabel!

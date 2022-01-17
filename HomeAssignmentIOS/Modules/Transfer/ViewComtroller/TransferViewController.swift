@@ -8,7 +8,6 @@
 import UIKit
 
 class TransferViewController: UIViewController {
-    
     @IBOutlet weak var payeeTextInput: TextInput!
     @IBOutlet weak var amountTextInput: TextInput!
     @IBOutlet weak var descriptionViewBackView: UIView!
@@ -54,6 +53,7 @@ class TransferViewController: UIViewController {
         descriptionTextView.delegate = self
         payeeTextInput.textField .inputView = itemPicker
         payeeTextInput.textField.tintColor = .clear
+        payeeTextInput.textField.setLeftImage(imageName: Constants.downButtonImage)
         
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(self.dismissKeyboard (_:)))
@@ -107,8 +107,21 @@ class TransferViewController: UIViewController {
         view.endEditing(true)
     }
     
+    private func validateTextInputs() {
+        guard let viewModel = transferViewModel else { return }
+        viewModel.validateTextInputs(textInput: payeeTextInput,
+                                     validationString: .payeeRequired)
+    }
+    
     @IBAction func transferAction(_ sender: Any) {
-        makeTransfer()
+        guard let viewModel = transferViewModel else { return }
+        validateTextInputs()
+        
+        if viewModel.textInputValidationStatus {
+            makeTransfer()
+        } else {
+            errorView.errorString = nil
+        }
     }
 }
 

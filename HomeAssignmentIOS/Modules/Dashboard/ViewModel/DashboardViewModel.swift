@@ -13,7 +13,6 @@ struct UserTransaction {
 }
 
 class DashboardViewModel {
-    
     private var transactionData: [Transaction] = []
     private var userTransactions: [UserTransaction] = []
     
