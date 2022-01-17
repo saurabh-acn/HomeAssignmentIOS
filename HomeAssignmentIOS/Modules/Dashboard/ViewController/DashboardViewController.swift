@@ -8,7 +8,7 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerViewBackgroundView: UIView!
     @IBOutlet weak var accountBalance: UILabel!
@@ -16,16 +16,11 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var accountHolder: UILabel!
     @IBOutlet weak var transferButton: RoundButton!
     
-    private var transactionData: [Transaction]?
     private var dashboardViewModel: DashboardViewModel?
     private var userTransactions: [UserTransaction] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        debugPrint("Username ------------------------ \(UserDefaults.standard.string(forKey: Constants.username) ?? "EMPTY USERNAME")")
-        debugPrint("Auth Token ------------------------ \(Environment.current.authToken ?? "EMPTY STRING")")
-        
         dashboardViewModel = DashboardViewModel()
         setupUI()
     }
@@ -33,13 +28,14 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.transferButton.isHidden = true
+        getBalance()
     }
     
     private func setupUI() {
         navigationItem.setHidesBackButton(true, animated: true)
         addLogoutButton()
         setUpTableView()
-        getBalance()
     }
     
     private func setUpTableView() {
@@ -58,6 +54,8 @@ class DashboardViewController: UIViewController {
     
     @IBAction func navigateTransferView(_ sender: Any) {
         transferButton.selectedState = true
+        guard let viewController = TransferViewController.initializeFromStoryboard() else { return }
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -112,6 +110,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.name = transactionData.title
             cell.nameLabel.textColor = .gray
+            cell.amount = nil
+            cell.transactionId = nil
         }
         return cell
     }
@@ -128,6 +128,7 @@ extension DashboardViewController {
 
 extension DashboardViewController: EndpopintAPICall {
     private func getTransactions() {
+        userTransactions.removeAll()
         guard let viewModel = dashboardViewModel else { return }
         viewModel.getTransactions { [weak self] transactionArray, error in
             guard let self = self else { return }
@@ -135,14 +136,16 @@ extension DashboardViewController: EndpopintAPICall {
                 self.userTransactions = transactionArray
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.transferButton.isHidden = false
                     Spinner.stop()
                 }
             } else {
                 DispatchQueue.main.async {
                     // Alert message
-                    Spinner.stop()
-                    self.popupAlert(title: Constants.errorTitle, message: Constants.genericServerErrorMeesage, actionTitles: ["Ok"], actions:[{action1 in
+                    self.popupAlert(title: Constants.errorTitle, message: error, actionTitles: ["Ok"], actions:[{action1 in
                     }])
+                    self.transferButton.isHidden = false
+                    Spinner.stop()
                 }
             }
         }
@@ -161,6 +164,8 @@ extension DashboardViewController: EndpopintAPICall {
                     self.getTransactions()
                 }
             } else {
+                self.popupAlert(title: Constants.errorTitle, message: error, actionTitles: ["Ok"], actions:[{ action in
+                }])
                 self.getTransactions()
             }
         }

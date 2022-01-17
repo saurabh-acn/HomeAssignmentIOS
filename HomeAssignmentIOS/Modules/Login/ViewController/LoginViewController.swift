@@ -113,6 +113,7 @@ extension LoginViewController {
     private func clearTextInputs() {
         usernameTextInput.textField.text = nil
         passwordTextInput.textField.text = nil
+        usernameTextInput.textField.becomeFirstResponder()
     }
 }
 

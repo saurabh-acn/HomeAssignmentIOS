@@ -48,7 +48,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Dp-1db" userLabel="Login" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="72"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Login">
+                                        <buttonConfiguration key="configuration" style="plain" title="LOGIN">
                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
@@ -59,7 +59,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X92-Xh-JfR" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="82" width="374" height="71.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Register">
+                                        <buttonConfiguration key="configuration" style="plain" title="REGISTER">
                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
@@ -161,7 +161,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKn-W8-7No" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="770.5" width="374" height="71.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Register">
+                                <buttonConfiguration key="configuration" style="plain" title="REGISTER">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
@@ -208,7 +208,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-MZ-92r">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-MZ-92r">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="S7H-m0-feA" userLabel="TableHeaderView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -324,13 +324,10 @@
                                     <rect key="frame" x="0.0" y="250" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv3-td-F9P" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv3-td-F9P" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                             <rect key="frame" x="20" y="29" width="374" height="71"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="71" id="HxG-7V-6fZ"/>
-                                            </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Transfer">
+                                            <buttonConfiguration key="configuration" style="plain" title="Make Transfer">
                                                 <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
@@ -344,6 +341,7 @@
                                         <constraint firstItem="bv3-td-F9P" firstAttribute="leading" secondItem="sIY-Sl-XMJ" secondAttribute="leading" constant="20" symbolic="YES" id="AGN-Mg-tt0"/>
                                         <constraint firstAttribute="trailing" secondItem="bv3-td-F9P" secondAttribute="trailing" constant="20" id="F8Z-JS-Wi5"/>
                                         <constraint firstAttribute="bottom" secondItem="bv3-td-F9P" secondAttribute="bottom" id="q35-Vd-IID"/>
+                                        <constraint firstItem="bv3-td-F9P" firstAttribute="height" secondItem="sIY-Sl-XMJ" secondAttribute="height" multiplier="0.71" id="zch-0O-uET"/>
                                     </constraints>
                                 </view>
                                 <connections>
@@ -374,6 +372,133 @@
             </objects>
             <point key="canvasLocation" x="3171" y="133"/>
         </scene>
+        <!--Transfer View Controller-->
+        <scene sceneID="gVc-dK-gRn">
+            <objects>
+                <viewController storyboardIdentifier="TransferViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlT-Fo-Dv9" customClass="TransferViewController" customModule="HomeAssignmentIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fSm-Yu-3pT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foj-82-hUH" userLabel="Transfer">
+                                <rect key="frame" x="20" y="44" width="374" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="txa-C8-hpr">
+                                <rect key="frame" x="20" y="90" width="374" height="320"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fac-8D-gnv" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="IK1-xb-0Al"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcV-e5-t99" customClass="TextInput" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="95" width="374" height="85"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="WtM-eZ-cac"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcJ-ZF-KfK" userLabel="DescriptionView">
+                                        <rect key="frame" x="0.0" y="190" width="374" height="130"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-x7-fHs">
+                                                <rect key="frame" x="0.0" y="20" width="374" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sc-rc-RcS">
+                                                        <rect key="frame" x="15" y="10" width="344" height="13.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13.5" id="tt8-a2-fuq"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="46X-U0-VTJ">
+                                                        <rect key="frame" x="10" y="28.5" width="354" height="71.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                                    </textView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="46X-U0-VTJ" firstAttribute="leading" secondItem="8Sc-rc-RcS" secondAttribute="leading" constant="-5" id="8gA-mY-Qse"/>
+                                                    <constraint firstAttribute="bottom" secondItem="46X-U0-VTJ" secondAttribute="bottom" constant="10" id="P8J-Sk-9Qy"/>
+                                                    <constraint firstItem="46X-U0-VTJ" firstAttribute="trailing" secondItem="8Sc-rc-RcS" secondAttribute="trailing" constant="5" id="gAa-In-fcK"/>
+                                                    <constraint firstItem="46X-U0-VTJ" firstAttribute="top" secondItem="8Sc-rc-RcS" secondAttribute="bottom" constant="5" id="heO-5H-N3o"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8Sc-rc-RcS" secondAttribute="trailing" constant="15" id="jEZ-1h-FvN"/>
+                                                    <constraint firstItem="8Sc-rc-RcS" firstAttribute="top" secondItem="wCH-x7-fHs" secondAttribute="top" constant="10" id="rqH-YH-bLR"/>
+                                                    <constraint firstItem="8Sc-rc-RcS" firstAttribute="leading" secondItem="wCH-x7-fHs" secondAttribute="leading" constant="15" id="ubt-ru-V6N"/>
+                                                    <constraint firstAttribute="height" constant="110" id="vqU-UN-ZL4"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wCH-x7-fHs" firstAttribute="leading" secondItem="ZcJ-ZF-KfK" secondAttribute="leading" id="Eso-DX-Sd3"/>
+                                            <constraint firstItem="wCH-x7-fHs" firstAttribute="top" secondItem="ZcJ-ZF-KfK" secondAttribute="top" constant="20" id="L5N-0y-0pS"/>
+                                            <constraint firstAttribute="bottom" secondItem="wCH-x7-fHs" secondAttribute="bottom" id="otd-xN-A4E"/>
+                                            <constraint firstAttribute="trailing" secondItem="wCH-x7-fHs" secondAttribute="trailing" id="uzt-QR-w74"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-lb-Rnv" customClass="CustomErrorView" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="445" width="374" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="u7X-Mh-kIl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gse-uq-hen" userLabel="Transfer" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="770.5" width="374" height="71.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Transfer Now">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="transferAction:" destination="jlT-Fo-Dv9" eventType="touchUpInside" id="XLd-PU-cvm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o0a-o8-oFM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gse-uq-hen" firstAttribute="leading" secondItem="o0a-o8-oFM" secondAttribute="leading" constant="20" id="707-Ck-mXU"/>
+                            <constraint firstItem="o0a-o8-oFM" firstAttribute="trailing" secondItem="txa-C8-hpr" secondAttribute="trailing" constant="20" id="Iju-tr-gRb"/>
+                            <constraint firstItem="o0a-o8-oFM" firstAttribute="bottom" secondItem="gse-uq-hen" secondAttribute="bottom" constant="20" id="QOI-tc-Fgn"/>
+                            <constraint firstItem="o0a-o8-oFM" firstAttribute="trailing" secondItem="UfV-lb-Rnv" secondAttribute="trailing" constant="20" id="RdB-il-j0e"/>
+                            <constraint firstItem="UfV-lb-Rnv" firstAttribute="leading" secondItem="o0a-o8-oFM" secondAttribute="leading" constant="20" id="Uv6-Wb-F9A"/>
+                            <constraint firstItem="Foj-82-hUH" firstAttribute="top" secondItem="o0a-o8-oFM" secondAttribute="top" id="Xgc-A0-w95"/>
+                            <constraint firstItem="gse-uq-hen" firstAttribute="height" secondItem="fSm-Yu-3pT" secondAttribute="height" multiplier="0.08" id="Ydk-ly-MGJ"/>
+                            <constraint firstItem="Foj-82-hUH" firstAttribute="leading" secondItem="o0a-o8-oFM" secondAttribute="leading" constant="20" id="c4z-oC-373"/>
+                            <constraint firstItem="o0a-o8-oFM" firstAttribute="trailing" secondItem="Foj-82-hUH" secondAttribute="trailing" constant="20" id="ezb-tM-nBD"/>
+                            <constraint firstItem="txa-C8-hpr" firstAttribute="leading" secondItem="o0a-o8-oFM" secondAttribute="leading" constant="20" id="fR8-5l-Tae"/>
+                            <constraint firstItem="o0a-o8-oFM" firstAttribute="trailing" secondItem="gse-uq-hen" secondAttribute="trailing" constant="20" id="oyF-DK-7iM"/>
+                            <constraint firstItem="txa-C8-hpr" firstAttribute="top" secondItem="Foj-82-hUH" secondAttribute="bottom" constant="10" id="pYD-tI-tLC"/>
+                            <constraint firstItem="UfV-lb-Rnv" firstAttribute="top" secondItem="txa-C8-hpr" secondAttribute="bottom" constant="35" id="z5A-mF-mvP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountTextInput" destination="rcV-e5-t99" id="0oy-vc-OWf"/>
+                        <outlet property="descriptionTextView" destination="46X-U0-VTJ" id="xRr-Fb-CDm"/>
+                        <outlet property="descriptionViewBackView" destination="wCH-x7-fHs" id="Czb-uc-NRX"/>
+                        <outlet property="errorView" destination="UfV-lb-Rnv" id="fgA-Gx-WQq"/>
+                        <outlet property="payeeTextInput" destination="Fac-8D-gnv" id="Yp4-Ej-d4t"/>
+                        <outlet property="transferButton" destination="gse-uq-hen" id="Q6H-ls-oXl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qn0-r3-sHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4058" y="133"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mb5-sV-jbq">
             <objects>
@@ -394,6 +519,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -26,4 +26,10 @@ struct Constants {
     
     // Transaction Type
     static let transactionTransfer = "transfer"
+    static let payeeText = "Payee"
+    static let amountText = "Amount"
+    
+    // Error Message
+    static let success = "Success"
+    static let SuccessMessge = "Transfer successful"
 }

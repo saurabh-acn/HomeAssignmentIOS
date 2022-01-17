@@ -20,6 +20,8 @@ protocol Endpoint {
     @objc optional func login(username: String, password: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void)
     @objc optional func transactions(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
     @objc optional func balance(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
+    @objc optional func payees(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
+    @objc optional func transfer(receipient: String, amount: String, description: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
 extension Endpoint {
@@ -42,14 +44,16 @@ enum StatusReponse: String {
 enum EndpointCases: Endpoint {
     case login(username: String, password: String)
     case register(username: String, password: String)
+    case transfer(receipient: String, amount: Int, description: String)
     case transactions
     case balance
+    case payees
     
     var httpMethod: ReuestType {
         switch self {
-        case .login, .register:
+        case .login, .register, .transfer:
             return .post
-        case .transactions, .balance:
+        case .transactions, .balance, .payees:
             return .get
         }
     }
@@ -68,6 +72,10 @@ enum EndpointCases: Endpoint {
             return Environment.transactions
         case .balance:
             return Environment.balance
+        case .payees:
+            return Environment.payees
+        case .transfer:
+            return Environment.transfer
         }
     }
     
@@ -77,14 +85,10 @@ enum EndpointCases: Endpoint {
             return ["Content-Type": Environment.current.contentType,
                     "Accept": Environment.current.acceptJson
             ]
-        case .transactions, .balance:
+        case .transactions, .balance, .payees, .transfer:
             return ["Content-Type": Environment.current.contentType,
                     "Accept": Environment.current.acceptJson,
                     "Authorization": Environment.current.authToken,
-            ]
-        default:
-            return ["Content-Type": Environment.current.contentType,
-                    "Accept": Environment.current.acceptJson
             ]
         }
     }
@@ -97,7 +101,11 @@ enum EndpointCases: Endpoint {
         case .register(let username, let password):
             return ["username": username,
                     "password" : password]
-        case .transactions, .balance:
+        case .transfer(let receipient, let amount, let description):
+            return ["receipientAccountNo": receipient,
+                    "amount" : amount,
+                    "description" : description]
+        case .transactions, .balance, .payees:
             return nil
         }
     }
@@ -113,7 +121,6 @@ class ServiceRequest {
         // URL
         let url = URL(string: endpoint.url)!
         var urlRequest = URLRequest(url: url)
-        
         // HTTP Method
         urlRequest.httpMethod = endpoint.httpMethod.rawValue.uppercased()
         if urlRequest.httpMethod == ReuestType.post.rawValue.uppercased() {
@@ -129,6 +136,7 @@ class ServiceRequest {
         endpoint.headers?.forEach({ header in
             urlRequest.setValue(header.value as? String, forHTTPHeaderField: header.key)
         })
+        
         let task = session.dataTask(with: urlRequest) { data, response, error in
             completion(data, response, error)
         }

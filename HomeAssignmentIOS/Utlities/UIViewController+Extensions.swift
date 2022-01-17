@@ -47,6 +47,7 @@ extension UIViewController {
     }
     
     @objc func logOut(sender : UIButton) {
+        Utilities.logOut()
         self.navigationController?.popViewController(animated: true)
     }
 }

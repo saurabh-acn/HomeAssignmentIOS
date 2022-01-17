@@ -70,7 +70,6 @@ class Utilities {
                let password = String(data: passwordData, encoding: .utf8)
             {
                 print(username)
-//                print(password)
                 return password
             }
         } else {
@@ -91,6 +90,13 @@ class Utilities {
             print("User removed successfully from the keychain")
         } else {
             print("Something went wrong trying to remove the user from the keychain")
+        }
+    }
+    
+    class func logOut() {
+        if let username = UserDefaults.standard.string(forKey: Constants.username) {
+            Utilities.deleteCredentials(username: username+Constants.tokenKey)
+            Utilities.deleteCredentials(username: username+Constants.passwordKey)
         }
     }
 }

@@ -55,6 +55,14 @@
 		86A672512795708800B2AD76 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724E2795708700B2AD76 /* TransactionCell.swift */; };
 		86A672522795708800B2AD76 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A6724F2795708700B2AD76 /* TransactionCell.xib */; };
 		86A672532795708800B2AD76 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A6724F2795708700B2AD76 /* TransactionCell.xib */; };
+		86A672602795C67900B2AD76 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6725F2795C67900B2AD76 /* TransferViewController.swift */; };
+		86A672612795C67900B2AD76 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6725F2795C67900B2AD76 /* TransferViewController.swift */; };
+		86A672642795C68F00B2AD76 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672632795C68F00B2AD76 /* TransferViewModel.swift */; };
+		86A672652795C68F00B2AD76 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672632795C68F00B2AD76 /* TransferViewModel.swift */; };
+		86A672682795CAF500B2AD76 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672662795CAF500B2AD76 /* TransferModel.swift */; };
+		86A672692795CAF500B2AD76 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672662795CAF500B2AD76 /* TransferModel.swift */; };
+		86A6726A2795CAF500B2AD76 /* PayeesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672672795CAF500B2AD76 /* PayeesModel.swift */; };
+		86A6726B2795CAF500B2AD76 /* PayeesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672672795CAF500B2AD76 /* PayeesModel.swift */; };
 		86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */; };
 		86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */; };
 		86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1F27901ED90042F2D2 /* LoginViewController.swift */; };
@@ -106,6 +114,10 @@
 		86A6724927956D1500B2AD76 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		86A6724E2795708700B2AD76 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		86A6724F2795708700B2AD76 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		86A6725F2795C67900B2AD76 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		86A672632795C68F00B2AD76 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		86A672662795CAF500B2AD76 /* TransferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
+		86A672672795CAF500B2AD76 /* PayeesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayeesModel.swift; sourceTree = "<group>"; };
 		86DEBD1827901ED90042F2D2 /* HomeAssignmentIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAssignmentIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 		8684BF2227914F5200BDABF0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				86A6725D2795C65600B2AD76 /* Transfer */,
 				86A6724227956CD100B2AD76 /* Dashboard */,
 				86A672362795685900B2AD76 /* Register */,
 				8684BF2527914F7700BDABF0 /* Login */,
@@ -229,6 +242,8 @@
 				86A6720C2795401900B2AD76 /* LoginModel.swift */,
 				86A6720B2795401900B2AD76 /* TransactionModel.swift */,
 				86A671AE2792B55600B2AD76 /* RegisterModel.swift */,
+				86A672672795CAF500B2AD76 /* PayeesModel.swift */,
+				86A672662795CAF500B2AD76 /* TransferModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -307,6 +322,31 @@
 				86A6724F2795708700B2AD76 /* TransactionCell.xib */,
 			);
 			path = TransactionCell;
+			sourceTree = "<group>";
+		};
+		86A6725D2795C65600B2AD76 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				86A672622795C67D00B2AD76 /* ViewModel */,
+				86A6725E2795C66600B2AD76 /* ViewComtroller */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
+		86A6725E2795C66600B2AD76 /* ViewComtroller */ = {
+			isa = PBXGroup;
+			children = (
+				86A6725F2795C67900B2AD76 /* TransferViewController.swift */,
+			);
+			path = ViewComtroller;
+			sourceTree = "<group>";
+		};
+		86A672622795C67D00B2AD76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				86A672632795C68F00B2AD76 /* TransferViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		86DEBD0F27901ED90042F2D2 = {
@@ -490,10 +530,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A6726A2795CAF500B2AD76 /* PayeesModel.swift in Sources */,
 				86A6720E2795401900B2AD76 /* TransactionModel.swift in Sources */,
 				86A671B82792BABD00B2AD76 /* UITextField+Extensions.swift in Sources */,
 				86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */,
+				86A672642795C68F00B2AD76 /* TransferViewModel.swift in Sources */,
 				86A6720727953FDA00B2AD76 /* Utilities.swift in Sources */,
+				86A672682795CAF500B2AD76 /* TransferModel.swift in Sources */,
 				86A672392795687200B2AD76 /* RegisterViewController.swift in Sources */,
 				86A671AB2792B4BE00B2AD76 /* Environment.swift in Sources */,
 				86A672102795401900B2AD76 /* LoginModel.swift in Sources */,
@@ -506,6 +549,7 @@
 				86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */,
 				86A672502795708800B2AD76 /* TransactionCell.swift in Sources */,
 				86A6720327953F7D00B2AD76 /* Constants.swift in Sources */,
+				86A672602795C67900B2AD76 /* TransferViewController.swift in Sources */,
 				86A6724A27956D1500B2AD76 /* DashboardViewModel.swift in Sources */,
 				86A671BB2792BCCA00B2AD76 /* Spinner.swift in Sources */,
 				8684BF29279179F500BDABF0 /* TextInput.swift in Sources */,
@@ -529,8 +573,10 @@
 				86A672132795401900B2AD76 /* BalanceModel.swift in Sources */,
 				86A6724B27956D1500B2AD76 /* DashboardViewModel.swift in Sources */,
 				86A6724127956B3900B2AD76 /* UIViewController+Extensions.swift in Sources */,
+				86A6726B2795CAF500B2AD76 /* PayeesModel.swift in Sources */,
 				86A6724727956CF500B2AD76 /* DashboardViewController.swift in Sources */,
 				86A671AC2792B4BE00B2AD76 /* Environment.swift in Sources */,
+				86A672612795C67900B2AD76 /* TransferViewController.swift in Sources */,
 				86A6723E27956AEB00B2AD76 /* RegisterViewModel.swift in Sources */,
 				8684BF3027917D8D00BDABF0 /* RoundButton.swift in Sources */,
 				86A672512795708800B2AD76 /* TransactionCell.swift in Sources */,
@@ -539,10 +585,12 @@
 				86A671AA2792B4BE00B2AD76 /* ServiceRequest.swift in Sources */,
 				86A6720F2795401900B2AD76 /* TransactionModel.swift in Sources */,
 				86A671B92792BABD00B2AD76 /* UITextField+Extensions.swift in Sources */,
+				86A672652795C68F00B2AD76 /* TransferViewModel.swift in Sources */,
 				86A6723A2795687200B2AD76 /* RegisterViewController.swift in Sources */,
 				86DEBD3327901EDC0042F2D2 /* HomeAssignmentIOSTests.swift in Sources */,
 				8684BF2A279179F500BDABF0 /* TextInput.swift in Sources */,
 				86A671BC2792BCCA00B2AD76 /* Spinner.swift in Sources */,
+				86A672692795CAF500B2AD76 /* TransferModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

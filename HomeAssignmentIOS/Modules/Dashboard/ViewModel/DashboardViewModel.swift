@@ -68,6 +68,8 @@ class DashboardViewModel {
     }
     
     private func filterTransactionByDate(transactionArray: [Transaction]?) -> [UserTransaction] {
+        userTransactions.removeAll()
+        transactionData.removeAll()
         if let transactions = transactionArray, transactions.count > 0 {
             _ = transactions.map { trans in
                 let dateFormatterGet = DateFormatter()
