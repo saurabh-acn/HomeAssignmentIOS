@@ -2,13 +2,13 @@
 //  TextInput.swift
 //  HomeAssignmentIOS
 //
-//  Created by saurabh.a.rana on 13/01/22.
+//  Created by saurabh.a.rana on 14/01/22.
 //
 
 import UIKit
 
 class TextInput: UIView {
-
+    
     @IBOutlet private weak var textInputBorderView: UIView!
     @IBOutlet weak var placeHolderLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -18,7 +18,7 @@ class TextInput: UIView {
         super.init(frame: frame)
     }
     /// TextInput XIB name
-    private let nibName = "TextInput"
+    private let nibName = Constants.textInputView
     
     var errorString: String? {
         didSet {
@@ -31,7 +31,7 @@ class TextInput: UIView {
         }
     }
     
-     /*Intialzies the control by deserializing it
+    /*Intialzies the control by deserializing it
      - parameter aDecoder the object to deserialize the control from
      */
     public required init?(coder aDecoder: NSCoder) {
@@ -44,17 +44,20 @@ class TextInput: UIView {
     public func loadSubview() {
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.autoresizingMask = [.flexibleWidth,
+                                 .flexibleHeight]
         self.addSubview(view)
     }
     
     /// Load view from XIB - return view
     private func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: nibName, bundle: bundle)
-        return nib.instantiate(withOwner: self, options: nil).first as? UIView
+        let nib = UINib(nibName: nibName,
+                        bundle: bundle)
+        return nib.instantiate(withOwner: self,
+                               options: nil).first as? UIView
     }
-
+    
     /// Load view from XIB - return view
     private func defaultSettings() {
         errorLabel.isHidden = true

@@ -2,7 +2,7 @@
 //  Environment.swift
 //  TestTableView
 //
-//  Created by saurabh.a.rana on 13/01/22.
+//  Created by saurabh.a.rana on 14/01/22.
 //
 
 import Foundation
@@ -47,7 +47,7 @@ extension Environment {
     
     var authToken: String {
         if let username = UserDefaults.standard.string(forKey: Constants.username) {
-            if let token = Utilities.retrieveCredentials(username: username+Constants.tokenKey) {
+            if let token = KeychainService.retrieveCredentials(username: username+Constants.tokenKey) {
                 return token
             }
             return ""

@@ -24,7 +24,6 @@ class DashboardViewModel {
                 guard let data = data else { return }
                 do {
                     let transactionData = try JSONDecoder().decode(TransactionModel.self, from: data)
-                    debugPrint("response data:", transactionData)
                     if transactionData.status == StatusReponse.success.rawValue {
                         let userTransactionArray = self.filterTransactionByDate(transactionArray: transactionData.data)
                         completion(userTransactionArray, nil)
@@ -33,7 +32,6 @@ class DashboardViewModel {
                         completion([], errorString)
                     }
                 } catch let err {
-                    debugPrint("Error: ", err)
                     completion([], err.localizedDescription)
                 }
             } else {
@@ -48,8 +46,8 @@ class DashboardViewModel {
             if error == nil {
                 guard let data = data else { return }
                 do {
-                    let balanceData = try JSONDecoder().decode(BalanceModel.self, from: data)
-                    debugPrint("response data:", balanceData)
+                    let balanceData = try JSONDecoder().decode(BalanceModel.self,
+                                                               from: data)
                     if balanceData.status == StatusReponse.success.rawValue {
                         completion(balanceData, nil)
                     } else {
@@ -57,7 +55,6 @@ class DashboardViewModel {
                         completion(nil, errorString)
                     }
                 } catch let err {
-                    debugPrint("Error: ", err)
                     completion(nil, err.localizedDescription)
                 }
             } else {
@@ -96,10 +93,10 @@ class DashboardViewModel {
                 let groupBydate = Dictionary(grouping: transactionData) { (transaction) -> String in
                     return transaction.transactionDate
                 }
-                for item in groupBydate {
-                    userTransactions.append(UserTransaction(title: item.key, data: item.value))
-                }
-                debugPrint("UserTransactionArray ---------------  \(userTransactions)")
+                _ = groupBydate.map({ data in
+                    userTransactions.append(UserTransaction(title: data.key,
+                                                            data: data.value))
+                })
                 return userTransactions
             }
         }

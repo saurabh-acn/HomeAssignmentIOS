@@ -8,26 +8,30 @@ enum ValidationStrings: String {
 }
 
 class Validators {
-    class func validateTextInputs(textInput: TextInput, validationString: ValidationStrings, validate: @escaping (Bool) -> Void) {
+    class func validateTextInputs(textInput: TextInput,
+                                  validationString: ValidationStrings,
+                                  validate: @escaping (Bool) -> Void) {
         do {
             _ = try textInput.textField.validatedText(validationType: .requiredField(field: textInput.placeHolderLabel.text!))
             textInput.errorString = nil
             validate(true)
         } catch(let error) {
+            debugPrint(error)
             textInput.errorString = validationString.rawValue
             validate(false)
-            debugPrint("------------VALIDATION ERROR \(error)")
         }
     }
     
-    class func confirmPasswordFields(password: TextInput, confirmPasword: TextInput, validationString: ValidationStrings, validate: @escaping (Bool) -> Void) {
+    class func confirmPasswordFields(password: TextInput,
+                                     confirmPasword: TextInput,
+                                     validationString: ValidationStrings,
+                                     validate: @escaping (Bool) -> Void) {
         if password.textField.text == confirmPasword.textField.text {
             confirmPasword.errorString = nil
             validate(true)
         } else {
             confirmPasword.errorString = validationString.rawValue
             validate(false)
-            debugPrint("------------VALIDATION ERROR \(validationString)")
         }
     }
 }

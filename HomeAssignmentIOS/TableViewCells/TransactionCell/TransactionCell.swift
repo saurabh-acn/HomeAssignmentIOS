@@ -1,8 +1,8 @@
 //
 //  TransactionCell.swift
-//  TestTableView
+//  HomeAssignmentIOS
 //
-//  Created by Saurabh Rana on 05/01/22.
+//  Created by Saurabh Rana on 14/01/22.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ class TransactionCell: UITableViewCell {
     /// To change lable font color
     public var amountTextColor: Bool = false {
         didSet {
-            if amountTextColor { amountLabel.textColor = UIColor(named: "TransactionAmountColor") } else {
+            if amountTextColor { amountLabel.textColor = UIColor(named: Constants.transactionAmountColor) } else {
                 amountLabel.textColor = .gray
             }
         }

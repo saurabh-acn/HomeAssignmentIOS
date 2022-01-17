@@ -10,14 +10,25 @@ import UIKit
 extension UIViewController {
     func addBackButton() {
         let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(named: "BackButton"), for: .normal)
-        backButton.setTitleColor(.white, for: .normal)
-        backButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        backButton.addTarget(self, action: #selector (backButtonClick(sender:)), for: .touchUpInside)
+        backButton.setImage(UIImage(named: Constants.backButtonImage),
+                            for: .normal)
+        backButton.setTitleColor(.white,
+                                 for: .normal)
+        backButton.frame = CGRect(x: 0,
+                                  y: 0,
+                                  width: 30,
+                                  height: 30)
+        backButton.addTarget(self,
+                             action: #selector (backButtonClick(sender:)),
+                             for: .touchUpInside)
         backButton.backgroundColor = .clear
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
-        view.bounds = view.bounds.offsetBy(dx: -5, dy: 0)
+        let view = UIView(frame: CGRect(x: 0,
+                                        y: 0,
+                                        width: 80,
+                                        height: 30))
+        view.bounds = view.bounds.offsetBy(dx: -5,
+                                           dy: 0)
         view.addSubview(backButton)
         let backButtonView = UIBarButtonItem(customView: view)
         view.backgroundColor = .clear
@@ -31,15 +42,27 @@ extension UIViewController {
     
     func addLogoutButton() {
         let backButton = UIButton(type: .custom)
-        backButton.setTitle("Logout", for: .normal)
-        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        backButton.setTitleColor(.black, for: .normal)
-        backButton.frame = CGRect(x: 0, y: 0, width: 70, height: 30)
-        backButton.addTarget(self, action: #selector(logOut(sender:)), for: UIControl.Event.touchUpInside)
+        backButton.setTitle(Constants.logout,
+                            for: .normal)
+        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 15,
+                                                        weight: .bold)
+        backButton.setTitleColor(.black,
+                                 for: .normal)
+        backButton.frame = CGRect(x: 0,
+                                  y: 0,
+                                  width: 70,
+                                  height: 30)
+        backButton.addTarget(self,
+                             action: #selector(logOut(sender:)),
+                             for: UIControl.Event.touchUpInside)
         backButton.backgroundColor = .clear
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
-        view.bounds = view.bounds.offsetBy(dx: -5, dy: 0)
+        let view = UIView(frame: CGRect(x: 0,
+                                        y: 0,
+                                        width: 80,
+                                        height: 30))
+        view.bounds = view.bounds.offsetBy(dx: -5,
+                                           dy: 0)
         view.addSubview(backButton)
         let backButtonView = UIBarButtonItem(customView: view)
         view.backgroundColor = .clear
@@ -47,7 +70,7 @@ extension UIViewController {
     }
     
     @objc func logOut(sender : UIButton) {
-        Utilities.logOut()
+        KeychainService.logOut()
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -79,12 +102,21 @@ extension Numeric {
 }
 
 extension UIViewController {
-    func popupAlert(title: String?, message: String?, actionTitles:[String?], actions:[((UIAlertAction) -> Void)?]) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    func popupAlert(title: String?,
+                    message: String?,
+                    actionTitles:[String?],
+                    actions:[((UIAlertAction) -> Void)?]) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
         for (index, title) in actionTitles.enumerated() {
-            let action = UIAlertAction(title: title, style: .default, handler: actions[index])
+            let action = UIAlertAction(title: title,
+                                       style: .default,
+                                       handler: actions[index])
             alert.addAction(action)
         }
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert,
+                     animated: true,
+                     completion: nil)
     }
 }

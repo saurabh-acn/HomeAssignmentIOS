@@ -1,8 +1,8 @@
 //
 //  RegisterModel.swift
-//  TestTableView
+//  HomeAssignmentIOS
 //
-//  Created by saurabh.a.rana on 13/01/22.
+//  Created by saurabh.a.rana on 14/01/22.
 //
 
 import Foundation

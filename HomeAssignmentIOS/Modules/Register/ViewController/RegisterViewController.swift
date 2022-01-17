@@ -76,24 +76,36 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController {
     private func validateTextInputs() {
         guard let viewModel = registerViewModel else { return }
-        viewModel.validateTextInputs(textInput: usernameTextInput, validationString: .usernameRequired)
-        viewModel.validateTextInputs(textInput: passwordTextInput, validationString: .passwordRequired)
-        viewModel.validateTextInputs(textInput: confirmTextInput, validationString: .confirmRequired)
-        viewModel.validateConfirmPassword(password: passwordTextInput, confirmPasword: confirmTextInput, validationString: .confirmPasswordError)
+        viewModel.validateTextInputs(textInput: usernameTextInput,
+                                     validationString: .usernameRequired)
+        viewModel.validateTextInputs(textInput: passwordTextInput,
+                                     validationString: .passwordRequired)
+        viewModel.validateTextInputs(textInput: confirmTextInput,
+                                     validationString: .confirmRequired)
+        viewModel.validateConfirmPassword(password: passwordTextInput,
+                                          confirmPasword: confirmTextInput,
+                                          validationString: .confirmPasswordError)
     }
     
     private func userRegistration() {
         guard let viewModel = registerViewModel else { return }
-        guard let username = usernameTextInput.textField.text, let password = passwordTextInput.textField.text else { return }
-        Spinner.start(style: .large, baseColor: .black)
-        viewModel.registerUser(username: username, password: password) { loginData, error in
+        guard let username = usernameTextInput.textField.text,
+                let password = passwordTextInput.textField.text else { return }
+        Spinner.start(style: .large,
+                      baseColor: .black)
+        viewModel.registerUser(username: username,
+                               password: password) { [weak self] loginData, error in
+            guard let self = self else { return }
             if error == nil {
-                // Navigate to dashboard
-                guard let data = loginData else { return }
-                debugPrint("Status of API: ------------- \(data)")
+                // Navigate to login page
                 DispatchQueue.main.async {
                     self.errorView.errorString = nil
-//                    self.navigateToDashboad()
+                    self.popupAlert(title: "",
+                                    message: Constants.registrationSuccess,
+                                    actionTitles: [Constants.ok],
+                                    actions:[{ action in
+                        self.navigationController?.popViewController(animated: true)
+                    }])
                 }
             } else {
                 // Show Error

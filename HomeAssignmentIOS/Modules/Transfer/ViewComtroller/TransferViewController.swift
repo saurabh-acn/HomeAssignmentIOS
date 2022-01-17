@@ -32,7 +32,8 @@ class TransferViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false,
+                                                     animated: animated)
     }
     
     private func setupUI() {
@@ -54,7 +55,8 @@ class TransferViewController: UIViewController {
         payeeTextInput.textField .inputView = itemPicker
         payeeTextInput.textField.tintColor = .clear
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
         addDoneButtonOnKeyboard()
     }
@@ -70,11 +72,20 @@ class TransferViewController: UIViewController {
         toolBar.tintColor = UIColor.black
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneTapped))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelTapped))
+        let doneButton = UIBarButtonItem(title: Constants.done,
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(self.doneTapped))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                          target: nil,
+                                          action: nil)
+        let cancelButton = UIBarButtonItem(title: Constants.cancel,
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(self.cancelTapped))
         
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.setItems([cancelButton, spaceButton, doneButton],
+                         animated: false)
         toolBar.isUserInteractionEnabled = true
         
         payeeTextInput.textField.inputView = itemPicker
@@ -103,21 +114,29 @@ class TransferViewController: UIViewController {
 
 extension TransferViewController {
     static func initializeFromStoryboard() -> TransferViewController? {
-        if let controller = UIStoryboard(name: "Main",
-                                         bundle: nil).instantiateViewController(withIdentifier: "TransferViewController") as? TransferViewController {
+        if let controller = UIStoryboard(name: Constants.main,
+                                         bundle: nil).instantiateViewController(withIdentifier: Constants.transferVC) as? TransferViewController {
             return controller
         } else { return nil }
     }
     
     private func addDoneButtonOnKeyboard(){
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0,
+                                                                  y: 0,
+                                                                  width: UIScreen.main.bounds.width,
+                                                                  height: 50))
         doneToolbar.barStyle = .default
         doneToolbar.isTranslucent = true
         doneToolbar.tintColor = UIColor.black
         doneToolbar.sizeToFit()
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                        target: nil,
+                                        action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: Constants.done,
+                                                    style: .done,
+                                                    target: self,
+                                                    action: #selector(self.doneButtonAction))
         
         let items = [flexSpace, done]
         doneToolbar.items = items
@@ -132,7 +151,8 @@ extension TransferViewController {
     
     private func getListOfPayees() {
         guard let viewModel = transferViewModel else { return }
-        Spinner.start(style: .large, baseColor: .black)
+        Spinner.start(style: .large,
+                      baseColor: .black)
         viewModel.getPayeesList { [weak self] payeesList, error in
             guard let self = self else { return }
             if error == nil {
@@ -143,7 +163,9 @@ extension TransferViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.popupAlert(title: Constants.errorTitle, message: error, actionTitles: ["Ok"], actions:[{ action in
+                    self.popupAlert(title: Constants.errorTitle,
+                                    message: error,
+                                    actionTitles: [Constants.ok], actions:[{ action in
                     }])
                     Spinner.stop()
                 }
@@ -153,15 +175,19 @@ extension TransferViewController {
     
     private func makeTransfer() {
         guard let viewModel = transferViewModel else { return }
-        Spinner.start(style: .large, baseColor: .black)
-
+        Spinner.start(style: .large,
+                      baseColor: .black)
         let amount = amountTextInput.textField.text ?? ""
         let description = descriptionTextView.text ?? ""
-        viewModel.makeTransfer(receipient: senderAccountNo, amount: amount, description: description) { [weak self] transferData, error in
+        viewModel.makeTransfer(receipient: senderAccountNo,
+                               amount: amount,
+                               description: description) { [weak self] transferData, error in
             guard let self = self else { return }
             if error == nil {
                 DispatchQueue.main.async {
-                    self.popupAlert(title: "", message: Constants.SuccessMessge, actionTitles: ["Ok"], actions:[{ action in
+                    self.popupAlert(title: "", message: Constants.SuccessMessge,
+                                    actionTitles: [Constants.ok],
+                                    actions:[{ action in
                         self.navigationController?.popViewController(animated: true)
                     }])
                     Spinner.stop()
@@ -193,7 +219,9 @@ extension TransferViewController: UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView,
+                  shouldChangeTextIn range: NSRange,
+                  replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
             return false
@@ -212,7 +240,9 @@ extension TransferViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return payees.count
     }
     
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView( _ pickerView: UIPickerView,
+                     titleForRow row: Int,
+                     forComponent component: Int) -> String? {
         guard let payees = payeesDataList else { return "" }
         let conditionIndex = payees[row].accountNo.count - 5
         let maskedName = String(payees[row].accountNo.enumerated().map { (index, element) -> Character in
@@ -221,7 +251,9 @@ extension TransferViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return payees[row].name + " " +  maskedName
     }
     
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView( _ pickerView: UIPickerView,
+                     didSelectRow row: Int,
+                     inComponent component: Int) {
         index = row
     }
 }

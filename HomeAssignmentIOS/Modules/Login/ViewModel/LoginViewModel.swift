@@ -2,7 +2,7 @@
 //  LoginViewModel.swift
 //  HomeAssignmentIOS
 //
-//  Created by saurabh.a.rana on 15/01/22.
+//  Created by saurabh.a.rana on 14/01/22.
 //
 
 import Foundation
@@ -13,34 +13,39 @@ class LoginViewModel {
         return isValidated
     }
     
-    func validateTextInputs(textInput: TextInput, validationString: ValidationStrings) {
-        Validators.validateTextInputs(textInput: textInput, validationString: validationString) { [weak self] success in
+    func validateTextInputs(textInput: TextInput,
+                            validationString: ValidationStrings) {
+        Validators.validateTextInputs(textInput: textInput,
+                                      validationString: validationString) { [weak self] success in
             guard let self = self else { return }
             self.isValidated = success
         }
     }
     
-    func makeAuthenticationCall(username: String, password: String, completion: @escaping (LoginModel?, String?) -> Void) {
-        login(username: username, password: password) { data, response, error in
+    func makeAuthenticationCall(username: String,
+                                password: String,
+                                completion: @escaping (LoginModel?, String?) -> Void) {
+        login(username: username,
+              password: password) { data, response, error in
             if error == nil {
                 guard let data = data else { return }
                 do {
-                    let loginData = try JSONDecoder().decode(LoginModel.self, from: data)
-                    debugPrint("response data:", loginData)
+                    let loginData = try JSONDecoder().decode(LoginModel.self,
+                                                             from: data)
                     if loginData.status == StatusReponse.success.rawValue {
                         if let jwtToken = loginData.token {
-                            UserDefaults.standard.set(username, forKey: Constants.username)
-                            Utilities.deleteCredentials(username: username+Constants.tokenKey)
-                            Utilities.deleteCredentials(username: username+Constants.passwordKey)
-                            Utilities.saveCredentials(username: username+Constants.tokenKey, password: jwtToken)
-                            Utilities.saveCredentials(username: username+Constants.passwordKey, password: password)
+                            UserDefaults.standard.set(username,
+                                                      forKey: Constants.username)
+                            KeychainService.deleteCredentials(username: username+Constants.tokenKey)
+                            KeychainService.deleteCredentials(username: username+Constants.passwordKey)
+                            KeychainService.saveCredentials(username: username+Constants.tokenKey, password: jwtToken)
+                            KeychainService.saveCredentials(username: username+Constants.passwordKey, password: password)
                         }
                         completion(loginData, nil)
                     } else {
                         completion(nil, loginData.error)
                     }
                 } catch let err {
-                    debugPrint("Error: ", err)
                     completion(nil, err.localizedDescription)
                 }
             } else {
@@ -52,8 +57,11 @@ class LoginViewModel {
 }
 
 extension LoginViewModel: EndpopintAPICall {
-    func login(username: String, password: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let endPoint = EndpointCases.login(username: username, password: password)
+    func login(username: String,
+               password: String,
+               completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let endPoint = EndpointCases.login(username: username,
+                                           password: password)
         ServiceRequest.shared.request(endpoint: endPoint) { data, response, error in
             completion(data, response, error)
         }

@@ -9,8 +9,10 @@ import Foundation
 import UIKit
 import Security
 
-class Utilities {
-    class func saveCredentials(username: String, password: String) {
+class KeychainService {
+    
+    class func saveCredentials(username: String,
+                               password: String) {
         // Set username and password
         let username = username
         let password = password.data(using: .utf8)!
@@ -30,7 +32,8 @@ class Utilities {
         }
     }
     
-    class func updateCredentials(username: String, password: String) {
+    class func updateCredentials(username: String,
+                                 password: String) {
         let newPassword = password.data(using: .utf8)!
         
         // Set query
@@ -44,9 +47,9 @@ class Utilities {
         
         // Find user and update
         if SecItemUpdate(query as CFDictionary, attributes as CFDictionary) == noErr {
-            print("Password has changed")
+            debugPrint("Password has changed")
         } else {
-            print("Something went wrong trying to update the password")
+            debugPrint("Something went wrong trying to update the password")
         }
     }
     
@@ -69,11 +72,11 @@ class Utilities {
                let passwordData = existingItem[kSecValueData as String] as? Data,
                let password = String(data: passwordData, encoding: .utf8)
             {
-                print(username)
+                debugPrint(username)
                 return password
             }
         } else {
-            print("Something went wrong trying to find the user in the keychain")
+            debugPrint("Something went wrong trying to find the user in the keychain")
         }
         return nil
     }
@@ -87,16 +90,16 @@ class Utilities {
         
         // Find user and delete
         if SecItemDelete(query as CFDictionary) == noErr {
-            print("User removed successfully from the keychain")
+            debugPrint("User removed successfully from the keychain")
         } else {
-            print("Something went wrong trying to remove the user from the keychain")
+            debugPrint("Something went wrong trying to remove the user from the keychain")
         }
     }
     
     class func logOut() {
         if let username = UserDefaults.standard.string(forKey: Constants.username) {
-            Utilities.deleteCredentials(username: username+Constants.tokenKey)
-            Utilities.deleteCredentials(username: username+Constants.passwordKey)
+            KeychainService.deleteCredentials(username: username+Constants.tokenKey)
+            KeychainService.deleteCredentials(username: username+Constants.passwordKey)
         }
     }
 }

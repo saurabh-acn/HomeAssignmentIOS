@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  HomeAssignmentIOS
 //
-//  Created by saurabh.a.rana on 13/01/22.
+//  Created by saurabh.a.rana on 14/01/22.
 //
 
 import UIKit
@@ -25,7 +25,8 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(true,
+                                                     animated: animated)
         clearTextInputs()
     }
     
@@ -41,7 +42,8 @@ class LoginViewController: UIViewController {
         usernameTextInput.textField.returnKeyType = .next
         passwordTextInput.textField.isSecureTextEntry = true
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
     }
     
@@ -69,15 +71,15 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     private func aunthenticate() {
         guard let viewModel = loginViewModel else { return }
-        guard let username = usernameTextInput.textField.text, let password = passwordTextInput.textField.text else { return }
-        Spinner.start(style: .large, baseColor: .black)
-        
-        viewModel.makeAuthenticationCall(username: username, password: password) { [weak self] loginData, error in
+        guard let username = usernameTextInput.textField.text,
+              let password = passwordTextInput.textField.text else { return }
+        Spinner.start(style: .large,
+                      baseColor: .black)
+        viewModel.makeAuthenticationCall(username: username,
+                                         password: password) { [weak self] loginData, error in
             guard let self = self else { return }
             if error == nil {
                 // Navigate to dashboard
-                guard let data = loginData else { return }
-                debugPrint("Status of API: ------------- \(data)")
                 DispatchQueue.main.async {
                     self.errorView.errorString = nil
                     Spinner.stop()
@@ -97,8 +99,10 @@ extension LoginViewController {
     
     private func validateTextInputs() {
         guard let viewModel = loginViewModel else { return }
-        viewModel.validateTextInputs(textInput: usernameTextInput, validationString: .usernameRequired)
-        viewModel.validateTextInputs(textInput: passwordTextInput, validationString: .passwordRequired)
+        viewModel.validateTextInputs(textInput: usernameTextInput,
+                                     validationString: .usernameRequired)
+        viewModel.validateTextInputs(textInput: passwordTextInput,
+                                     validationString: .passwordRequired)
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -107,13 +111,19 @@ extension LoginViewController {
     
     private func navigateToDashboad() {
         guard let viewController = DashboardViewController.initializeFromStoryboard() else { return }
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController,
+                                                 animated: true)
     }
     
     private func clearTextInputs() {
         usernameTextInput.textField.text = nil
         passwordTextInput.textField.text = nil
         usernameTextInput.textField.becomeFirstResponder()
+        loginButton.selectedState = false
+        registerButton.selectedState = false
+        loginButton.layoutSubviews()
+        registerButton.layoutSubviews()
+        errorView.errorString = nil
     }
 }
 

@@ -2,7 +2,7 @@
 //  CustomErrorView.swift
 //  HomeAssignmentIOS
 //
-//  Created by saurabh.a.rana on 15/01/22.
+//  Created by saurabh.a.rana on 17/01/22.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ class CustomErrorView: UIView {
         super.init(frame: frame)
     }
     /// TextInput XIB name
-    private let nibName = "CustomErrorView"
+    private let nibName = Constants.customErrorView
     
     var errorString: String? {
         didSet {
@@ -43,15 +43,18 @@ class CustomErrorView: UIView {
     public func loadSubview() {
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.autoresizingMask = [.flexibleWidth,
+                                 .flexibleHeight]
         self.addSubview(view)
     }
     
     /// Load view from XIB - return view
     private func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: nibName, bundle: bundle)
-        return nib.instantiate(withOwner: self, options: nil).first as? UIView
+        let nib = UINib(nibName: nibName,
+                        bundle: bundle)
+        return nib.instantiate(withOwner: self,
+                               options: nil).first as? UIView
     }
     
     /// Load view from XIB - return view

@@ -38,24 +38,29 @@ class DashboardViewController: UIViewController {
         setUpTableView()
     }
     
+    /// To Setup TableView
     private func setUpTableView() {
-        tableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
+        tableView.register(UINib(nibName: Constants.transactionCell,
+                                 bundle: nil),
+                           forCellReuseIdentifier: Constants.transactionCell)
         tableView.layer.masksToBounds = false
-        tableView.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor // any value you want
-        tableView.layer.shadowOpacity = 1 // any value you want
-        tableView.layer.shadowRadius = 5 // any value you want
-        tableView.layer.shadowOffset = .init(width: 0, height: 5) // any value you want
+        tableView.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
+        tableView.layer.shadowOpacity = 1
+        tableView.layer.shadowRadius = 5
+        tableView.layer.shadowOffset = .init(width: 0, height: 5)
         
         headerViewBackgroundView.clipsToBounds = true
         headerViewBackgroundView.layer.cornerRadius = 20
-        headerViewBackgroundView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        headerViewBackgroundView.layer.maskedCorners = [.layerMaxXMinYCorner,
+                                                        .layerMaxXMaxYCorner]
         headerViewBackgroundView.dropShadow()
     }
     
     @IBAction func navigateTransferView(_ sender: Any) {
         transferButton.selectedState = true
         guard let viewController = TransferViewController.initializeFromStoryboard() else { return }
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController,
+                                                 animated: true)
     }
 }
 
@@ -65,24 +70,34 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         if userTransactions[section].data.count > 0 { return userTransactions[section].data.count + 1 }
         return 0
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int) -> CGFloat {
         if userTransactions.count > 0 && section == 0 {
             return 40
         }
         return 0
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
         if userTransactions.count > 0 && section == 0 {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
-            titleLabel.text = "Your transaction history"
-            titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+            let view = UIView(frame: CGRect(x: 0,
+                                            y: 0,
+                                            width: tableView.frame.width,
+                                            height: 40))
+            let titleLabel = UILabel(frame: CGRect(x: 0,
+                                                   y: 0,
+                                                   width: tableView.frame.width,
+                                                   height: 30))
+            titleLabel.text = Constants.trasactionTitle
+            titleLabel.font = UIFont.systemFont(ofSize: 15,
+                                                weight: .bold)
             view.addSubview(titleLabel)
             view.backgroundColor = .clear
             return view
@@ -90,8 +105,10 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionCell
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.transactionCell,
+                                                 for: indexPath) as! TransactionCell
         let row = indexPath.row - 1
         let transactionData = userTransactions[indexPath.section]
         if indexPath.row > 0 {
@@ -119,10 +136,16 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension DashboardViewController {
     static func initializeFromStoryboard() -> DashboardViewController? {
-        if let controller = UIStoryboard(name: "Main",
-                                         bundle: nil).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController {
+        if let controller = UIStoryboard(name: Constants.main,
+                                         bundle: nil).instantiateViewController(withIdentifier: Constants.dashboardVC) as? DashboardViewController {
             return controller
         } else { return nil }
+    }
+    
+    private func setDefaultButtonConfig() {
+        transferButton.isHidden = false
+        transferButton.selectedState = false
+        transferButton.layoutSubviews()
     }
 }
 
@@ -136,15 +159,17 @@ extension DashboardViewController: EndpopintAPICall {
                 self.userTransactions = transactionArray
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.transferButton.isHidden = false
+                    self.setDefaultButtonConfig()
                     Spinner.stop()
                 }
             } else {
                 DispatchQueue.main.async {
                     // Alert message
-                    self.popupAlert(title: Constants.errorTitle, message: error, actionTitles: ["Ok"], actions:[{action1 in
+                    self.popupAlert(title: Constants.errorTitle,
+                                    message: error,
+                                    actionTitles: [Constants.ok], actions:[{ action1 in
                     }])
-                    self.transferButton.isHidden = false
+                    self.setDefaultButtonConfig()
                     Spinner.stop()
                 }
             }
@@ -153,18 +178,21 @@ extension DashboardViewController: EndpopintAPICall {
     
     private func getBalance() {
         guard let viewModel = dashboardViewModel else { return }
-        Spinner.start(style: .large, baseColor: .black)
+        Spinner.start(style: .large,
+                      baseColor: .black)
         viewModel.getBalance { [weak self] balanceData, error in
             guard let self = self else { return }
             if error == nil {
                 DispatchQueue.main.async {
-                    self.accountBalance.text = "SGD \((balanceData?.balance ?? 0.0).formattedWithSeparator)"
+                    self.accountBalance.text = "\(Constants.currencyType) \((balanceData?.balance ?? 0.0).formattedWithSeparator)"
                     self.accountNumber.text = balanceData?.accountNo ?? ""
                     self.accountHolder.text = UserDefaults.standard.string(forKey: Constants.username)
                     self.getTransactions()
                 }
             } else {
-                self.popupAlert(title: Constants.errorTitle, message: error, actionTitles: ["Ok"], actions:[{ action in
+                self.popupAlert(title: Constants.errorTitle,
+                                message: error,
+                                actionTitles: [Constants.ok], actions:[{ action in
                 }])
                 self.getTransactions()
             }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8675A2E72795F041004B4F43 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675A2E62795F041004B4F43 /* KeychainService.swift */; };
 		8684BF29279179F500BDABF0 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684BF27279179F500BDABF0 /* TextInput.swift */; };
 		8684BF2A279179F500BDABF0 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684BF27279179F500BDABF0 /* TextInput.swift */; };
 		8684BF2B279179F500BDABF0 /* TextInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8684BF28279179F500BDABF0 /* TextInput.xib */; };
@@ -29,8 +30,6 @@
 		86A671BC2792BCCA00B2AD76 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A671BA2792BCCA00B2AD76 /* Spinner.swift */; };
 		86A6720327953F7D00B2AD76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720227953F7D00B2AD76 /* Constants.swift */; };
 		86A6720427953F7D00B2AD76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720227953F7D00B2AD76 /* Constants.swift */; };
-		86A6720727953FDA00B2AD76 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720527953FDA00B2AD76 /* Utilities.swift */; };
-		86A6720827953FDA00B2AD76 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720527953FDA00B2AD76 /* Utilities.swift */; };
 		86A6720E2795401900B2AD76 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720B2795401900B2AD76 /* TransactionModel.swift */; };
 		86A6720F2795401900B2AD76 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720B2795401900B2AD76 /* TransactionModel.swift */; };
 		86A672102795401900B2AD76 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6720C2795401900B2AD76 /* LoginModel.swift */; };
@@ -90,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8675A2E62795F041004B4F43 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		8684BF27279179F500BDABF0 /* TextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		8684BF28279179F500BDABF0 /* TextInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInput.xib; sourceTree = "<group>"; };
 		8684BF2E27917D8D00BDABF0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -101,7 +101,6 @@
 		86A671B72792BABD00B2AD76 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		86A671BA2792BCCA00B2AD76 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		86A6720227953F7D00B2AD76 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		86A6720527953FDA00B2AD76 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		86A6720B2795401900B2AD76 /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		86A6720C2795401900B2AD76 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		86A6720D2795401900B2AD76 /* BalanceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
@@ -200,7 +199,7 @@
 				8684BF2D27917D7E00BDABF0 /* RoundButton */,
 				8684BF262791799400BDABF0 /* TextInput */,
 				86A671A42791854200B2AD76 /* Validators.swift */,
-				86A6720527953FDA00B2AD76 /* Utilities.swift */,
+				8675A2E62795F041004B4F43 /* KeychainService.swift */,
 				86A6720227953F7D00B2AD76 /* Constants.swift */,
 				86A671BA2792BCCA00B2AD76 /* Spinner.swift */,
 				86A671B72792BABD00B2AD76 /* UITextField+Extensions.swift */,
@@ -535,9 +534,9 @@
 				86A671B82792BABD00B2AD76 /* UITextField+Extensions.swift in Sources */,
 				86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */,
 				86A672642795C68F00B2AD76 /* TransferViewModel.swift in Sources */,
-				86A6720727953FDA00B2AD76 /* Utilities.swift in Sources */,
 				86A672682795CAF500B2AD76 /* TransferModel.swift in Sources */,
 				86A672392795687200B2AD76 /* RegisterViewController.swift in Sources */,
+				8675A2E72795F041004B4F43 /* KeychainService.swift in Sources */,
 				86A671AB2792B4BE00B2AD76 /* Environment.swift in Sources */,
 				86A672102795401900B2AD76 /* LoginModel.swift in Sources */,
 				8684BF2F27917D8D00BDABF0 /* RoundButton.swift in Sources */,
@@ -581,7 +580,6 @@
 				8684BF3027917D8D00BDABF0 /* RoundButton.swift in Sources */,
 				86A672512795708800B2AD76 /* TransactionCell.swift in Sources */,
 				86A671B32792B58F00B2AD76 /* LoginViewModel.swift in Sources */,
-				86A6720827953FDA00B2AD76 /* Utilities.swift in Sources */,
 				86A671AA2792B4BE00B2AD76 /* ServiceRequest.swift in Sources */,
 				86A6720F2795401900B2AD76 /* TransactionModel.swift in Sources */,
 				86A671B92792BABD00B2AD76 /* UITextField+Extensions.swift in Sources */,
