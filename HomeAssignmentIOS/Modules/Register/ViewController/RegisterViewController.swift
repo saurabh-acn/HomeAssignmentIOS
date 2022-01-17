@@ -26,6 +26,7 @@ class RegisterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        clearTextInputs()
     }
     
     private func setupUI() {
@@ -63,6 +64,12 @@ class RegisterViewController: UIViewController {
         } else {
             errorView.errorString = nil
         }
+    }
+    
+    private func clearTextInputs() {
+        usernameTextInput.textField.text = nil
+        passwordTextInput.textField.text = nil
+        confirmTextInput.textField.text = nil
     }
 }
 

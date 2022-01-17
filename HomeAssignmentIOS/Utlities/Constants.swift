@@ -16,7 +16,7 @@ struct Constants {
     static let passwordKey = "HomeAssignmentPassKey"
     
     // Error Message
-    static let errorTitle = "Server issue, Please try again"
+    static let errorTitle = "Error"
     static let genericServerErrorMeesage = "Server issue, Please try again"
     static let dateErrorMeesage = "There was an error decoding the string"
     

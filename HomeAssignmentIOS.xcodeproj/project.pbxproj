@@ -47,6 +47,14 @@
 		86A6723E27956AEB00B2AD76 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6723C27956AE800B2AD76 /* RegisterViewModel.swift */; };
 		86A6724027956B3900B2AD76 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6723F27956B3900B2AD76 /* UIViewController+Extensions.swift */; };
 		86A6724127956B3900B2AD76 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6723F27956B3900B2AD76 /* UIViewController+Extensions.swift */; };
+		86A6724627956CF500B2AD76 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724527956CF500B2AD76 /* DashboardViewController.swift */; };
+		86A6724727956CF500B2AD76 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724527956CF500B2AD76 /* DashboardViewController.swift */; };
+		86A6724A27956D1500B2AD76 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724927956D1500B2AD76 /* DashboardViewModel.swift */; };
+		86A6724B27956D1500B2AD76 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724927956D1500B2AD76 /* DashboardViewModel.swift */; };
+		86A672502795708800B2AD76 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724E2795708700B2AD76 /* TransactionCell.swift */; };
+		86A672512795708800B2AD76 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6724E2795708700B2AD76 /* TransactionCell.swift */; };
+		86A672522795708800B2AD76 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A6724F2795708700B2AD76 /* TransactionCell.xib */; };
+		86A672532795708800B2AD76 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A6724F2795708700B2AD76 /* TransactionCell.xib */; };
 		86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */; };
 		86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */; };
 		86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1F27901ED90042F2D2 /* LoginViewController.swift */; };
@@ -94,6 +102,10 @@
 		86A672382795687200B2AD76 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		86A6723C27956AE800B2AD76 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		86A6723F27956B3900B2AD76 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		86A6724527956CF500B2AD76 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		86A6724927956D1500B2AD76 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		86A6724E2795708700B2AD76 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		86A6724F2795708700B2AD76 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		86DEBD1827901ED90042F2D2 /* HomeAssignmentIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAssignmentIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +163,7 @@
 		8684BF2227914F5200BDABF0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				86A6724227956CD100B2AD76 /* Dashboard */,
 				86A672362795685900B2AD76 /* Register */,
 				8684BF2527914F7700BDABF0 /* Login */,
 			);
@@ -171,12 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				86A672182795409D00B2AD76 /* CustomErrorView */,
-				86A6720527953FDA00B2AD76 /* Utilities.swift */,
-				86A6720227953F7D00B2AD76 /* Constants.swift */,
-				86A671BA2792BCCA00B2AD76 /* Spinner.swift */,
 				8684BF2D27917D7E00BDABF0 /* RoundButton */,
 				8684BF262791799400BDABF0 /* TextInput */,
 				86A671A42791854200B2AD76 /* Validators.swift */,
+				86A6720527953FDA00B2AD76 /* Utilities.swift */,
+				86A6720227953F7D00B2AD76 /* Constants.swift */,
+				86A671BA2792BCCA00B2AD76 /* Spinner.swift */,
 				86A671B72792BABD00B2AD76 /* UITextField+Extensions.swift */,
 				86A6723F27956B3900B2AD76 /* UIViewController+Extensions.swift */,
 			);
@@ -254,6 +267,48 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		86A6724227956CD100B2AD76 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				86A6724827956D0100B2AD76 /* ViewModel */,
+				86A6724427956CE500B2AD76 /* ViewController */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		86A6724427956CE500B2AD76 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86A6724527956CF500B2AD76 /* DashboardViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		86A6724827956D0100B2AD76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				86A6724927956D1500B2AD76 /* DashboardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		86A6724C2795705500B2AD76 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				86A6724D2795706600B2AD76 /* TransactionCell */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		86A6724D2795706600B2AD76 /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				86A6724E2795708700B2AD76 /* TransactionCell.swift */,
+				86A6724F2795708700B2AD76 /* TransactionCell.xib */,
+			);
+			path = TransactionCell;
+			sourceTree = "<group>";
+		};
 		86DEBD0F27901ED90042F2D2 = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +331,7 @@
 		86DEBD1A27901ED90042F2D2 /* HomeAssignmentIOS */ = {
 			isa = PBXGroup;
 			children = (
+				86A6724C2795705500B2AD76 /* TableViewCells */,
 				8684BF2227914F5200BDABF0 /* Modules */,
 				8684BF2327914F5B00BDABF0 /* Services */,
 				8684BF2427914F6200BDABF0 /* Utlities */,
@@ -403,6 +459,7 @@
 			files = (
 				86DEBD2827901EDC0042F2D2 /* LaunchScreen.storyboard in Resources */,
 				86DEBD2527901EDC0042F2D2 /* Assets.xcassets in Resources */,
+				86A672522795708800B2AD76 /* TransactionCell.xib in Resources */,
 				86DEBD2327901ED90042F2D2 /* Main.storyboard in Resources */,
 				8684BF2B279179F500BDABF0 /* TextInput.xib in Resources */,
 				86A6722D27955CDB00B2AD76 /* CustomErrorView.xib in Resources */,
@@ -415,6 +472,7 @@
 			files = (
 				86A6722E27955CDB00B2AD76 /* CustomErrorView.xib in Resources */,
 				8684BF2C279179F500BDABF0 /* TextInput.xib in Resources */,
+				86A672532795708800B2AD76 /* TransactionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,11 +504,14 @@
 				86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */,
 				86A6723D27956AE800B2AD76 /* RegisterViewModel.swift in Sources */,
 				86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */,
+				86A672502795708800B2AD76 /* TransactionCell.swift in Sources */,
 				86A6720327953F7D00B2AD76 /* Constants.swift in Sources */,
+				86A6724A27956D1500B2AD76 /* DashboardViewModel.swift in Sources */,
 				86A671BB2792BCCA00B2AD76 /* Spinner.swift in Sources */,
 				8684BF29279179F500BDABF0 /* TextInput.swift in Sources */,
 				86A6722A27955CD200B2AD76 /* CustomErrorView.swift in Sources */,
 				86A671A92792B4BE00B2AD76 /* ServiceRequest.swift in Sources */,
+				86A6724627956CF500B2AD76 /* DashboardViewController.swift in Sources */,
 				86A671B22792B58F00B2AD76 /* LoginViewModel.swift in Sources */,
 				86A671AF2792B55600B2AD76 /* RegisterModel.swift in Sources */,
 			);
@@ -466,10 +527,13 @@
 				86A6720427953F7D00B2AD76 /* Constants.swift in Sources */,
 				86A671B02792B55600B2AD76 /* RegisterModel.swift in Sources */,
 				86A672132795401900B2AD76 /* BalanceModel.swift in Sources */,
+				86A6724B27956D1500B2AD76 /* DashboardViewModel.swift in Sources */,
 				86A6724127956B3900B2AD76 /* UIViewController+Extensions.swift in Sources */,
+				86A6724727956CF500B2AD76 /* DashboardViewController.swift in Sources */,
 				86A671AC2792B4BE00B2AD76 /* Environment.swift in Sources */,
 				86A6723E27956AEB00B2AD76 /* RegisterViewModel.swift in Sources */,
 				8684BF3027917D8D00BDABF0 /* RoundButton.swift in Sources */,
+				86A672512795708800B2AD76 /* TransactionCell.swift in Sources */,
 				86A671B32792B58F00B2AD76 /* LoginViewModel.swift in Sources */,
 				86A6720827953FDA00B2AD76 /* Utilities.swift in Sources */,
 				86A671AA2792B4BE00B2AD76 /* ServiceRequest.swift in Sources */,

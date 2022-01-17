@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        clearTextInputs()
     }
     
     private func setupUI() {
@@ -105,6 +106,13 @@ extension LoginViewController {
     }
     
     private func navigateToDashboad() {
+        guard let viewController = DashboardViewController.initializeFromStoryboard() else { return }
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func clearTextInputs() {
+        usernameTextInput.textField.text = nil
+        passwordTextInput.textField.text = nil
     }
 }
 

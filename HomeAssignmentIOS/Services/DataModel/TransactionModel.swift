@@ -2,7 +2,7 @@
 //  TransactionModel.swift
 //  HomeAssignmentIOS
 //
-//  Created by saurabh.a.rana on 16/01/22.
+//  Created by saurabh.a.rana on 17/01/22.
 //
 
 import Foundation
@@ -34,7 +34,8 @@ struct TransactionError: Decodable {
 struct Transaction: Decodable {
     let transactionID: String
     let amount: Int
-    let transactionDate, description, transactionType: String
+    let transactionDate, transactionType: String
+    let description : String?
     let receipient: TransactionSenderDetails?
     let sender: TransactionSenderDetails?
     
