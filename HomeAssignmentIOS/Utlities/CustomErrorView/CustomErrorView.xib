@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomErrorView" customModule="HomeAssignmentIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="Ctb-6m-4m9" id="pHQ-uQ-S9v"/>
+                <outlet property="errorLabel" destination="bxh-cw-SXZ" id="dQv-T0-Lal"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="823" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctb-6m-4m9">
+                    <rect key="frame" x="0.0" y="10" width="823" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-cw-SXZ">
+                            <rect key="frame" x="20" y="30" width="783" height="20"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.089382520150000005" blue="0.1138711328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="bxh-cw-SXZ" firstAttribute="centerY" secondItem="Ctb-6m-4m9" secondAttribute="centerY" id="Ohh-mK-8k2"/>
+                        <constraint firstItem="bxh-cw-SXZ" firstAttribute="leading" secondItem="Ctb-6m-4m9" secondAttribute="leading" constant="20" id="gmH-Sw-hrY"/>
+                        <constraint firstAttribute="trailing" secondItem="bxh-cw-SXZ" secondAttribute="trailing" constant="20" id="prC-BN-bcK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ctb-6m-4m9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FY6-4u-QCm"/>
+                <constraint firstAttribute="trailing" secondItem="Ctb-6m-4m9" secondAttribute="trailing" id="Yhe-Qe-BuN"/>
+                <constraint firstItem="Ctb-6m-4m9" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-10" id="ZdB-LA-bzM"/>
+                <constraint firstAttribute="top" secondItem="Ctb-6m-4m9" secondAttribute="top" constant="-10" id="f7M-XS-UHQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="174.63768115942031" y="135.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,5 +1,37 @@
 import Foundation
 
+enum ValidationStrings: String {
+    case usernameRequired = "Username is required"
+    case passwordRequired = "Password is required"
+    case confirmRequired = "Confirm Password is required"
+    case confirmPasswordError = "Confirm Password not match"
+}
+
+class Validators {
+    class func validateTextInputs(textInput: TextInput, validationString: ValidationStrings, validate: @escaping (Bool) -> Void) {
+        do {
+            _ = try textInput.textField.validatedText(validationType: .requiredField(field: textInput.placeHolderLabel.text!))
+            textInput.errorString = nil
+            validate(true)
+        } catch(let error) {
+            textInput.errorString = validationString.rawValue
+            validate(false)
+            debugPrint("------------VALIDATION ERROR \(error)")
+        }
+    }
+    
+    class func confirmPasswordFields(password: TextInput, confirmPasword: TextInput, validationString: ValidationStrings, validate: @escaping (Bool) -> Void) {
+        if password.textField.text == confirmPasword.textField.text {
+            confirmPasword.errorString = nil
+            validate(true)
+        } else {
+            confirmPasword.errorString = validationString.rawValue
+            validate(false)
+            debugPrint("------------VALIDATION ERROR \(validationString)")
+        }
+    }
+}
+
 class ValidationError: Error {
     var message: String
     
