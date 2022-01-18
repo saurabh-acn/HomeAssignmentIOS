@@ -8,6 +8,8 @@
 import UIKit
 
 class TransferViewController: UIViewController {
+    
+    /// IBOutlet used
     @IBOutlet weak var payeeTextInput: TextInput!
     @IBOutlet weak var amountTextInput: TextInput!
     @IBOutlet weak var descriptionViewBackView: UIView!
@@ -15,6 +17,7 @@ class TransferViewController: UIViewController {
     @IBOutlet weak var transferButton: RoundButton!
     @IBOutlet weak var errorView: CustomErrorView!
     
+    /// Variables used
     var itemPicker: UIPickerView! = UIPickerView()
     
     private var transferViewModel: TransferViewModel?
@@ -22,6 +25,7 @@ class TransferViewController: UIViewController {
     private var index: Int = 0
     private var senderAccountNo = ""
     
+    /// View Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         transferViewModel = TransferViewModel()
@@ -35,6 +39,7 @@ class TransferViewController: UIViewController {
                                                      animated: animated)
     }
     
+    /// Funciton to setup UI
     private func setupUI() {
         addBackButton()
         setUpTextfields()
@@ -44,6 +49,7 @@ class TransferViewController: UIViewController {
         setUpPickerView()
     }
     
+    /// Funciton to setup textfields
     private func setUpTextfields() {
         payeeTextInput?.placeHolderLabel.text = Constants.payeeText
         amountTextInput?.placeHolderLabel.text = Constants.amountText
@@ -61,6 +67,7 @@ class TransferViewController: UIViewController {
         addDoneButtonOnKeyboard()
     }
     
+    /// Funciton to setup picker view
     private func setUpPickerView() {
         itemPicker.delegate = self
         itemPicker.dataSource = self
@@ -92,6 +99,7 @@ class TransferViewController: UIViewController {
         payeeTextInput?.textField.inputAccessoryView = toolBar
     }
     
+    /// Funciton to close picker after selection
     @objc func doneTapped() {
         guard let payees = payeesDataList else { return }
         payeeTextInput.textField.text = payees[index].name
@@ -99,20 +107,25 @@ class TransferViewController: UIViewController {
         payeeTextInput.textField.resignFirstResponder()
     }
     
+    /// Funciton to close picker
     @objc func cancelTapped() {
         payeeTextInput.textField.resignFirstResponder()
     }
     
+    /// Funciton to dismiss keyboard
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
+    /// Funciton to validate inputtexts
     private func validateTextInputs() {
         guard let viewModel = transferViewModel else { return }
         viewModel.validateTextInputs(textInput: payeeTextInput,
                                      validationString: .payeeRequired)
     }
     
+    /// Function to make tranfer
+    /// - Parameter sender: Instance of button
     @IBAction func transferAction(_ sender: Any) {
         guard let viewModel = transferViewModel else { return }
         validateTextInputs()
@@ -126,6 +139,8 @@ class TransferViewController: UIViewController {
 }
 
 extension TransferViewController {
+    /// Function to get instance of viewController
+    /// - Returns: Instance of viewController
     static func initializeFromStoryboard() -> TransferViewController? {
         if let controller = UIStoryboard(name: Constants.main,
                                          bundle: nil).instantiateViewController(withIdentifier: Constants.transferVC) as? TransferViewController {
@@ -133,6 +148,7 @@ extension TransferViewController {
         } else { return nil }
     }
     
+    /// Function to add done button on keyboard
     private func addDoneButtonOnKeyboard(){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0,
                                                                   y: 0,
@@ -162,6 +178,7 @@ extension TransferViewController {
         amountTextInput.textField.resignFirstResponder()
     }
     
+    /// Function to get list of payees
     private func getListOfPayees() {
         guard let viewModel = transferViewModel else { return }
         Spinner.start(style: .large,
@@ -186,6 +203,7 @@ extension TransferViewController {
         }
     }
     
+    /// Function to call api of tranfer money
     private func makeTransfer() {
         guard let viewModel = transferViewModel else { return }
         Spinner.start(style: .large,
@@ -216,6 +234,7 @@ extension TransferViewController {
 }
 
 extension TransferViewController: UITextFieldDelegate, UITextViewDelegate {
+    /// Textfield delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switchBasedNextTextField(textField)
         return true
@@ -232,6 +251,7 @@ extension TransferViewController: UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
+    /// Textview delegate
     func textView(_ textView: UITextView,
                   shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool {
@@ -244,6 +264,7 @@ extension TransferViewController: UITextFieldDelegate, UITextViewDelegate {
 }
 
 extension TransferViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    /// Pickerview delegate and datasources
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

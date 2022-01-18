@@ -8,11 +8,17 @@
 import Foundation
 
 class TransferViewModel {
+    
+    /// Variable used
     private var isValidated = false
     var textInputValidationStatus: Bool {
         return isValidated
     }
     
+    /// Function to to validate textinputs
+    /// - Parameters:
+    ///   - textInput: Instance of TextInput
+    ///   - validationString: Validation error string
     func validateTextInputs(textInput: TextInput,
                             validationString: ValidationStrings) {
         Validators.validateTextInputs(textInput: textInput,
@@ -22,6 +28,8 @@ class TransferViewModel {
         }
     }
     
+    /// Function to get list of payee service
+    /// - Parameter completion: closure to get response
     func getPayeesList(completion: @escaping (PayeesModel?,
                                               String?) -> Void) {
         payees { data, response, error in
@@ -46,6 +54,12 @@ class TransferViewModel {
         }
     }
     
+    /// Function to transfer money to payee
+    /// - Parameters:
+    ///   - receipient: account number of receipient
+    ///   - amount: amount to tranfer
+    ///   - description: description
+    ///   - completion: closure to get resonse of api
     func makeTransfer(receipient: String,
                       amount: String,
                       description: String,
@@ -54,7 +68,7 @@ class TransferViewModel {
                  amount: amount,
                  description: description) { data, response, error in
             if error == nil {
-                guard let data = data else { return }
+                guard let data = data else { return completion(nil, Constants.genericServerErrorMeesage) }
                 do {
                     let transferData = try JSONDecoder().decode(TransferModel.self,
                                                                 from: data)
@@ -76,6 +90,8 @@ class TransferViewModel {
 }
 
 extension TransferViewModel: EndpopintAPICall {
+    ///  API call to get list of payees
+    /// - Parameter completion: closure to get resopnse of api
     func payees(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let endPoint = EndpointCases.payees
         ServiceRequest.shared.request(endpoint: endPoint) { data, response, error in
@@ -83,6 +99,12 @@ extension TransferViewModel: EndpopintAPICall {
         }
     }
     
+    /// API call to transfer money to another account
+    /// - Parameters:
+    ///   - receipient: receipient account number
+    ///   - amount: amount to tranfer
+    ///   - description: description
+    ///   - completion: closure to get resopnse of api
     func transfer(receipient: String,
                   amount: String,
                   description: String,

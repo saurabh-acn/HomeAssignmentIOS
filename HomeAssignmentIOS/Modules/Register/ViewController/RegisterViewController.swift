@@ -8,14 +8,18 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    
+    /// IBOutlet used
     @IBOutlet weak var usernameTextInput: TextInput!
     @IBOutlet weak var passwordTextInput: TextInput!
     @IBOutlet weak var confirmTextInput: TextInput!
     @IBOutlet weak var registerButton: RoundButton!
     @IBOutlet weak var errorView: CustomErrorView!
     
+    /// Variables used
     private var registerViewModel: RegisterViewModel?
     
+    /// View Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         registerViewModel = RegisterViewModel()
@@ -28,11 +32,13 @@ class RegisterViewController: UIViewController {
         clearTextInputs()
     }
     
+    /// Fucniton to setupUI
     private func setupUI() {
         addBackButton()
         setUpTextfields()
     }
     
+    /// Funciton to setup textfields
     private func setUpTextfields() {
         usernameTextInput?.placeHolderLabel.text = Constants.username
         passwordTextInput?.placeHolderLabel.text = Constants.password
@@ -53,6 +59,7 @@ class RegisterViewController: UIViewController {
         view.endEditing(true)
     }
     
+    /// Fucniton to call register api afer validation
     @IBAction func registerAction(_ sender: Any) {
         guard let viewModel = registerViewModel else { return }
         registerButton.selectedState = true
@@ -63,6 +70,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    /// Function to clear textinputs
     private func clearTextInputs() {
         usernameTextInput?.textField.text = nil
         passwordTextInput?.textField.text = nil
@@ -71,6 +79,7 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController {
+    /// Function to validate textinputs
     private func validateTextInputs() {
         guard let viewModel = registerViewModel else { return }
         viewModel.validateTextInputs(textInput: usernameTextInput,
@@ -98,6 +107,7 @@ extension RegisterViewController {
                                           validationString: .confirmPasswordError)
     }
     
+    /// Function to call register api
     private func userRegistration() {
         guard let viewModel = registerViewModel else { return }
         guard let username = usernameTextInput.textField.text,
@@ -132,6 +142,7 @@ extension RegisterViewController {
 }
 
 extension RegisterViewController: UITextFieldDelegate {
+    /// Textfield delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switchBasedNextTextField(textField)
         return true

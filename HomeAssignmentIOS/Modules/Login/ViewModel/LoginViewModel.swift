@@ -8,11 +8,17 @@
 import Foundation
 
 class LoginViewModel {
+    
+    /// Variable used
     private var isValidated = false
     var textInputValidationStatus: Bool {
         return isValidated
     }
     
+    /// Function to to validate textinputs
+    /// - Parameters:
+    ///   - textInput: Instance of TextInput
+    ///   - validationString: Validation error string
     func validateTextInputs(textInput: TextInput,
                             validationString: ValidationStrings) {
         Validators.validateTextInputs(textInput: textInput,
@@ -22,24 +28,32 @@ class LoginViewModel {
         }
     }
     
+    
+    /// Function to call login api
+    /// - Parameters:
+    ///   - username: username
+    ///   - password: password
+    ///   - completion: Closure to get response from api
     func makeAuthenticationCall(username: String,
                                 password: String,
                                 completion: @escaping (LoginModel?, String?) -> Void) {
         login(username: username,
               password: password) { data, response, error in
             if error == nil {
-                guard let data = data else { return }
+                guard let data = data else { return completion(nil, Constants.genericServerErrorMeesage) }
                 do {
                     let loginData = try JSONDecoder().decode(LoginModel.self,
                                                              from: data)
                     if loginData.status == StatusReponse.success.rawValue {
                         if let jwtToken = loginData.token {
-                            UserDefaults.standard.set(username,
-                                                      forKey: Constants.username)
+                            KeychainService.deleteCredentials(username: Constants.userKey)
                             KeychainService.deleteCredentials(username: username+Constants.tokenKey)
                             KeychainService.deleteCredentials(username: username+Constants.passwordKey)
-                            KeychainService.saveCredentials(username: username+Constants.tokenKey, password: jwtToken)
-                            KeychainService.saveCredentials(username: username+Constants.passwordKey, password: password)
+                            KeychainService.saveCredentials(username: Constants.userKey, password: username)
+                            if let username = KeychainService.retrieveCredentials(username: Constants.userKey) {
+                                KeychainService.saveCredentials(username: username+Constants.tokenKey, password: jwtToken)
+                                KeychainService.saveCredentials(username: username+Constants.passwordKey, password: password)
+                            }
                         }
                         completion(loginData, nil)
                     } else {
@@ -57,6 +71,11 @@ class LoginViewModel {
 }
 
 extension LoginViewModel: EndpopintAPICall {
+    /// Function to call login api
+    /// - Parameters:
+    ///   - username: username
+    ///   - password: password
+    ///   - completion: Closure to get response from api
     func login(username: String,
                password: String,
                completion: @escaping (Data?, URLResponse?, Error?) -> Void) {

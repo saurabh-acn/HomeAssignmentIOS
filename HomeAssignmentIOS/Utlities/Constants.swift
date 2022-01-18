@@ -12,6 +12,7 @@ struct Constants {
     static let username = "Username"
     static let password = "Password"
     static let confirmPassword = "Confirm Password"
+    static let userKey = "username"
     static let tokenKey = "HomeAssignmentIOSKey"
     static let passwordKey = "HomeAssignmentPassKey"
     

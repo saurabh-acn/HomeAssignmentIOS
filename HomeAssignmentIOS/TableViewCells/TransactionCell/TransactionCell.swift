@@ -8,12 +8,14 @@
 import UIKit
 
 class TransactionCell: UITableViewCell {
+    
+    /// IBOutlet used
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     
     /// To set name title.
-    public var name: String? {
+    var name: String? {
         didSet {
             nameLabel.isHidden = name == nil ? true : false
             nameLabel.text = nameLabel.isHidden ? "" : name
@@ -21,7 +23,7 @@ class TransactionCell: UITableViewCell {
     }
     
     /// To set amount
-    public var amount: String? {
+    var amount: String? {
         didSet {
             amountLabel.isHidden = amount == nil ? true : false
             amountLabel.text = amountLabel.isHidden ? "" : amount
@@ -29,7 +31,7 @@ class TransactionCell: UITableViewCell {
     }
     
     /// To change lable font color
-    public var amountTextColor: Bool = false {
+    var amountTextColor: Bool = false {
         didSet {
             if amountTextColor { amountLabel.textColor = UIColor(named: Constants.transactionAmountColor) } else {
                 amountLabel.textColor = .gray
@@ -38,7 +40,7 @@ class TransactionCell: UITableViewCell {
     }
     
     /// To set id
-    public var transactionId: String? {
+    var transactionId: String? {
         didSet {
             idLabel.isHidden = transactionId == nil ? true : false
             idLabel.text = idLabel.isHidden ? "" : transactionId

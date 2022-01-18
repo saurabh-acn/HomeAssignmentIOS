@@ -8,12 +8,16 @@
 import Foundation
 import UIKit
 
-open class Spinner {
-    internal static var spinner: UIActivityIndicatorView?
-    public static var style: UIActivityIndicatorView.Style = .large
-    public static var baseColor = UIColor.red
+class Spinner {
+    static var spinner: UIActivityIndicatorView?
+    static var style: UIActivityIndicatorView.Style = .large
+    static var baseColor = UIColor.red
     
-    public static func start(style: UIActivityIndicatorView.Style = style,
+    /// Function to show UIActivityIndicatorView
+    /// - Parameters:
+    ///   - style: UIActivityIndicatorView.Style
+    ///   - baseColor: color
+    static func start(style: UIActivityIndicatorView.Style = style,
                              baseColor: UIColor = baseColor) {
         if spinner == nil, let window = UIApplication.shared.windows.first {
             let frame = UIScreen.main.bounds
@@ -29,7 +33,8 @@ open class Spinner {
         }
     }
     
-    public static func stop() {
+    /// Funciton to stop / hide UIActivityIndicatorView
+    static func stop() {
         if spinner != nil {
             spinner?.stopAnimating()
             spinner?.removeFromSuperview()

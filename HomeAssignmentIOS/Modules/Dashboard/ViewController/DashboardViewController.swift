@@ -8,6 +8,8 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
+    
+    /// IBOutlet used
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerViewBackgroundView: UIView!
     @IBOutlet weak var accountBalance: UILabel!
@@ -15,12 +17,25 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var accountHolder: UILabel!
     @IBOutlet weak var transferButton: RoundButton!
     
+    /// Variables used
     private var dashboardViewModel: DashboardViewModel?
     var userTransactions: [UserTransaction] = []
     
+    lazy var refreshControl: UIRefreshControl = {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action:
+                         #selector(handleRefresh(_:)),
+                         for: .valueChanged)
+            refreshControl.tintColor = UIColor.black
+            
+            return refreshControl
+        }()
+    
+    /// View Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         dashboardViewModel = DashboardViewModel()
+        tableView.addSubview(self.refreshControl)
         setupUI()
     }
     
@@ -31,6 +46,7 @@ class DashboardViewController: UIViewController {
         getBalance()
     }
     
+    /// Funciton to setup UI
     private func setupUI() {
         navigationItem.setHidesBackButton(true, animated: true)
         addLogoutButton()
@@ -55,6 +71,13 @@ class DashboardViewController: UIViewController {
         headerViewBackgroundView?.dropShadow()
     }
     
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        self.getBalance()
+    }
+    
+    /// Function to navigate to tranfer view
     @IBAction func navigateTransferView(_ sender: Any) {
         transferButton?.selectedState = true
         guard let viewController = TransferViewController.initializeFromStoryboard() else { return }
@@ -64,6 +87,7 @@ class DashboardViewController: UIViewController {
 }
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
+    /// Tableview delegates and datasource
     func numberOfSections(in tableView: UITableView) -> Int {
         if userTransactions.count > 0 { return userTransactions.count }
         return 0
@@ -86,20 +110,24 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         if userTransactions.count > 0 && section == 0 {
-            let view = UIView(frame: CGRect(x: 0,
-                                            y: 0,
-                                            width: tableView.frame.width,
-                                            height: 40))
-            let titleLabel = UILabel(frame: CGRect(x: 0,
-                                                   y: 0,
-                                                   width: tableView.frame.width,
-                                                   height: 30))
+            let headerView = UIView()
+            let titleLabel = UILabel()
+            headerView.backgroundColor = .clear
+            
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
             titleLabel.text = Constants.trasactionTitle
             titleLabel.font = UIFont.systemFont(ofSize: 15,
                                                 weight: .bold)
-            view.addSubview(titleLabel)
-            view.backgroundColor = .clear
-            return view
+            headerView.addSubview(titleLabel)
+            
+            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor,
+                                                constant: 0).isActive = true
+            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor,
+                                                 constant: 0).isActive = true
+            titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor,
+                                            constant: 0).isActive = true
+            titleLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            return headerView
         }
         return nil
     }
@@ -131,9 +159,12 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+
 }
 
 extension DashboardViewController {
+    /// Function to get instance of viewController
+    /// - Returns: Instance of viewController
     static func initializeFromStoryboard() -> DashboardViewController? {
         if let controller = UIStoryboard(name: Constants.main,
                                          bundle: nil).instantiateViewController(withIdentifier: Constants.dashboardVC) as? DashboardViewController {
@@ -141,6 +172,7 @@ extension DashboardViewController {
         } else { return nil }
     }
     
+    /// Function to set default settig to transfer button
     func setDefaultButtonConfig() {
         transferButton?.isHidden = false
         transferButton?.selectedState = false
@@ -149,6 +181,7 @@ extension DashboardViewController {
 }
 
 extension DashboardViewController: EndpopintAPICall {
+    /// Function to call api of transactions
     private func getTransactions() {
         userTransactions.removeAll()
         guard let viewModel = dashboardViewModel else { return }
@@ -164,7 +197,7 @@ extension DashboardViewController: EndpopintAPICall {
             } else {
                 DispatchQueue.main.async {
                     // Alert message
-                    self.popupAlert(title: Constants.errorTitle,
+                    self.popupAlert(title: Constants.genericServerErrorMeesage,
                                     message: error,
                                     actionTitles: [Constants.ok], actions:[{ action1 in
                     }])
@@ -175,6 +208,7 @@ extension DashboardViewController: EndpopintAPICall {
         }
     }
     
+    /// Function to call api of balance
     private func getBalance() {
         guard let viewModel = dashboardViewModel else { return }
         Spinner.start(style: .large,
@@ -189,10 +223,12 @@ extension DashboardViewController: EndpopintAPICall {
                     self.getTransactions()
                 }
             } else {
-                self.popupAlert(title: Constants.errorTitle,
-                                message: error,
-                                actionTitles: [Constants.ok], actions:[{ action in
-                }])
+                DispatchQueue.main.async {
+                    self.popupAlert(title: Constants.genericServerErrorMeesage,
+                                    message: error,
+                                    actionTitles: [Constants.ok], actions:[{ action in
+                    }])
+                }
                 self.getTransactions()
             }
         }

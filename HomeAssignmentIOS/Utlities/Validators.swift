@@ -1,5 +1,6 @@
 import Foundation
 
+/// Enum to maintain validation error strings
 enum ValidationStrings: String {
     case usernameRequired = "Username is required"
     case passwordRequired = "Password is required"
@@ -10,6 +11,12 @@ enum ValidationStrings: String {
 }
 
 class Validators {
+    
+    /// Function to validate required fileds
+    /// - Parameters:
+    ///   - textInput: Instance of textinput
+    ///   - validationString: Validatoin error string
+    ///   - validate: Validation status
     class func validateTextInputs(textInput: TextInput,
                                   validationString: ValidationStrings,
                                   validate: @escaping (Bool) -> Void) {
@@ -24,6 +31,11 @@ class Validators {
         }
     }
     
+    /// Function to validate strength of password textfileds
+    /// - Parameters:
+    ///   - textInput: Instance of textinput
+    ///   - validationString: Validatoin error string
+    ///   - validate: Validation status
     class func validatePasswordTextInput(textInput: TextInput,
                                   validationString: ValidationStrings,
                                   validate: @escaping (Bool) -> Void) {
@@ -38,6 +50,12 @@ class Validators {
         }
     }
     
+    ///  Function to validate two textfield for same text
+    /// - Parameters:
+    ///   - password: Instance of textinput
+    ///   - confirmPasword: Instance of textinput
+    ///   - validationString: Validaiton error string
+    ///   - validate: Validaiton status
     class func confirmPasswordFields(password: TextInput,
                                      confirmPasword: TextInput,
                                      validationString: ValidationStrings,
@@ -52,6 +70,7 @@ class Validators {
     }
 }
 
+/// Class to show validation error
 class ValidationError: Error {
     var message: String
     
@@ -64,6 +83,7 @@ protocol ValidatorConvertible {
     func validated(_ value: String) throws -> String
 }
 
+/// Enums used to for diferentiating between different validations
 enum ValidatorType {
     case password
     case requiredField(field: String)
@@ -78,6 +98,7 @@ enum VaildatorFactory {
     }
 }
 
+/// Regex used for password strengths
 enum ValidatorRegularExpression {
     static let password = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"
 

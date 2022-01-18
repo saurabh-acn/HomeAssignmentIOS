@@ -8,6 +8,8 @@
 import UIKit
 
 class RoundButton: UIButton {
+    
+    /// Variable used
     var selectedState: Bool = false
     
     override func awakeFromNib() {

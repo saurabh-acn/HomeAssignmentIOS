@@ -87,13 +87,6 @@
 			remoteGlobalIDString = 86DEBD1727901ED90042F2D2;
 			remoteInfo = HomeAssignmentIOS;
 		};
-		86DEBD3927901EDC0042F2D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 86DEBD1027901ED90042F2D2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 86DEBD1727901ED90042F2D2;
-			remoteInfo = HomeAssignmentIOS;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -140,7 +133,6 @@
 		86DEBD2927901EDC0042F2D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86DEBD2E27901EDC0042F2D2 /* HomeAssignmentIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeAssignmentIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DEBD3227901EDC0042F2D2 /* HomeAssignmentIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssignmentIOSTests.swift; sourceTree = "<group>"; };
-		86DEBD3827901EDC0042F2D2 /* HomeAssignmentIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeAssignmentIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +144,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		86DEBD2B27901EDC0042F2D2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86DEBD3527901EDC0042F2D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -375,7 +360,6 @@
 			children = (
 				86DEBD1827901ED90042F2D2 /* HomeAssignmentIOS.app */,
 				86DEBD2E27901EDC0042F2D2 /* HomeAssignmentIOSTests.xctest */,
-				86DEBD3827901EDC0042F2D2 /* HomeAssignmentIOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,24 +432,6 @@
 			productReference = 86DEBD2E27901EDC0042F2D2 /* HomeAssignmentIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		86DEBD3727901EDC0042F2D2 /* HomeAssignmentIOSUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 86DEBD4827901EDC0042F2D2 /* Build configuration list for PBXNativeTarget "HomeAssignmentIOSUITests" */;
-			buildPhases = (
-				86DEBD3427901EDC0042F2D2 /* Sources */,
-				86DEBD3527901EDC0042F2D2 /* Frameworks */,
-				86DEBD3627901EDC0042F2D2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				86DEBD3A27901EDC0042F2D2 /* PBXTargetDependency */,
-			);
-			name = HomeAssignmentIOSUITests;
-			productName = HomeAssignmentIOSUITests;
-			productReference = 86DEBD3827901EDC0042F2D2 /* HomeAssignmentIOSUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -480,10 +446,6 @@
 						CreatedOnToolsVersion = 13.1;
 					};
 					86DEBD2D27901EDC0042F2D2 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 86DEBD1727901ED90042F2D2;
-					};
-					86DEBD3727901EDC0042F2D2 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 86DEBD1727901ED90042F2D2;
 					};
@@ -504,7 +466,6 @@
 			targets = (
 				86DEBD1727901ED90042F2D2 /* HomeAssignmentIOS */,
 				86DEBD2D27901EDC0042F2D2 /* HomeAssignmentIOSTests */,
-				86DEBD3727901EDC0042F2D2 /* HomeAssignmentIOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -531,13 +492,6 @@
 				8684BF2C279179F500BDABF0 /* TextInput.xib in Resources */,
 				86A672532795708800B2AD76 /* TransactionCell.xib in Resources */,
 				86BD1B53279693030055156E /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86DEBD3627901EDC0042F2D2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,13 +572,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86DEBD3427901EDC0042F2D2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -632,11 +579,6 @@
 			isa = PBXTargetDependency;
 			target = 86DEBD1727901ED90042F2D2 /* HomeAssignmentIOS */;
 			targetProxy = 86DEBD2F27901EDC0042F2D2 /* PBXContainerItemProxy */;
-		};
-		86DEBD3A27901EDC0042F2D2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 86DEBD1727901ED90042F2D2 /* HomeAssignmentIOS */;
-			targetProxy = 86DEBD3927901EDC0042F2D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -788,8 +730,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -799,7 +743,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -815,8 +759,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -826,7 +772,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -878,50 +824,6 @@
 			};
 			name = Release;
 		};
-		86DEBD4927901EDC0042F2D2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.home.demo.HomeAssignmentIOSUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HomeAssignmentIOS;
-			};
-			name = Debug;
-		};
-		86DEBD4A27901EDC0042F2D2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.home.demo.HomeAssignmentIOSUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HomeAssignmentIOS;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -948,15 +850,6 @@
 			buildConfigurations = (
 				86DEBD4627901EDC0042F2D2 /* Debug */,
 				86DEBD4727901EDC0042F2D2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		86DEBD4827901EDC0042F2D2 /* Build configuration list for PBXNativeTarget "HomeAssignmentIOSUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				86DEBD4927901EDC0042F2D2 /* Debug */,
-				86DEBD4A27901EDC0042F2D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

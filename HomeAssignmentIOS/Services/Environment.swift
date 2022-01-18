@@ -13,6 +13,7 @@ enum Environment {
     case production             // Incase for Produciton Approach
 }
 
+/// URL and string used service request
 enum EnvironmentConstant {
     static let baseURL = "https://green-thumb-64168.uc.r.appspot.com/"
     static let contentType = "application/json"
@@ -46,7 +47,7 @@ extension Environment {
     }
     
     var authToken: String {
-        if let username = UserDefaults.standard.string(forKey: Constants.username) {
+        if let username = KeychainService.retrieveCredentials(username: Constants.userKey) {
             if let token = KeychainService.retrieveCredentials(username: username+Constants.tokenKey) {
                 return token
             }
@@ -56,6 +57,7 @@ extension Environment {
     }
 }
 
+/// Endpoint of url
 extension Environment {
     static let login = "login"
     static let register = "register"

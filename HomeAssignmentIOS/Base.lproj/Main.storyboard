@@ -47,22 +47,22 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Dp-1db" userLabel="Login" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="72"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="LOGIN">
-                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="LOGIN">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="loginAction:" destination="SWP-h8-iDE" eventType="touchUpInside" id="oW0-5O-Ncf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X92-Xh-JfR" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="82" width="374" height="71.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="REGISTER">
-                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="REGISTER">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="registerAction:" destination="SWP-h8-iDE" eventType="touchUpInside" id="9s4-ng-5Jk"/>
                                             <segue destination="7kN-6j-Sy8" kind="show" id="INa-Po-GkB"/>
@@ -120,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpo-HJ-aq0">
-                                <rect key="frame" x="20" y="88" width="121" height="36"/>
+                                <rect key="frame" x="20" y="88" width="374" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -160,11 +160,11 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKn-W8-7No" userLabel="Register" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="770.5" width="374" height="71.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="REGISTER">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="REGISTER">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="registerAction:" destination="7kN-6j-Sy8" eventType="touchUpInside" id="sui-dR-QBi"/>
                                 </connections>
@@ -183,6 +183,7 @@
                             <constraint firstItem="Tdw-wT-BgJ" firstAttribute="leading" secondItem="pKf-tB-47v" secondAttribute="leading" constant="20" id="S50-Ez-NQg"/>
                             <constraint firstItem="pKf-tB-47v" firstAttribute="trailing" secondItem="Tdw-wT-BgJ" secondAttribute="trailing" constant="20" id="U6q-8u-jhz"/>
                             <constraint firstItem="OzY-Gr-ypY" firstAttribute="leading" secondItem="pKf-tB-47v" secondAttribute="leading" constant="20" id="VQ7-Z5-e9a"/>
+                            <constraint firstItem="pKf-tB-47v" firstAttribute="trailing" secondItem="mpo-HJ-aq0" secondAttribute="trailing" constant="20" id="YZ8-J2-1yC"/>
                             <constraint firstItem="jKn-W8-7No" firstAttribute="height" secondItem="X3d-bZ-XRn" secondAttribute="height" multiplier="0.08" id="hDB-6d-jpb"/>
                             <constraint firstItem="pKf-tB-47v" firstAttribute="bottom" secondItem="jKn-W8-7No" secondAttribute="bottom" constant="20" id="iYm-dX-Z1h"/>
                         </constraints>
@@ -224,13 +225,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="304" height="54"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xta-wj-Ako">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="69.5" height="27"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="27"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-wf-fKj">
-                                                                    <rect key="frame" x="0.0" y="27" width="0.0" height="26.5"/>
+                                                                    <rect key="frame" x="0.0" y="27" width="284" height="26.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -241,9 +242,11 @@
                                                                 <constraint firstItem="rfx-wf-fKj" firstAttribute="top" secondItem="xta-wj-Ako" secondAttribute="bottom" id="HwY-mn-F5W"/>
                                                                 <constraint firstItem="rfx-wf-fKj" firstAttribute="height" secondItem="xta-wj-Ako" secondAttribute="height" multiplier="0.981481" id="Hye-HH-lZH"/>
                                                                 <constraint firstItem="xta-wj-Ako" firstAttribute="leading" secondItem="PAW-ZH-etZ" secondAttribute="leading" id="NM2-bW-gIs"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rfx-wf-fKj" secondAttribute="trailing" constant="20" id="TjY-I6-zfG"/>
                                                                 <constraint firstAttribute="height" constant="54" id="Yo0-zF-yY3"/>
                                                                 <constraint firstItem="rfx-wf-fKj" firstAttribute="leading" secondItem="PAW-ZH-etZ" secondAttribute="leading" id="d4T-LO-sLr"/>
                                                                 <constraint firstItem="xta-wj-Ako" firstAttribute="top" secondItem="PAW-ZH-etZ" secondAttribute="top" id="kbx-9m-hdk"/>
+                                                                <constraint firstAttribute="trailing" secondItem="xta-wj-Ako" secondAttribute="trailing" constant="20" id="l5K-kP-CT3"/>
                                                                 <constraint firstItem="xta-wj-Ako" firstAttribute="height" secondItem="PAW-ZH-etZ" secondAttribute="height" multiplier="0.5" id="xIc-Ho-g1D"/>
                                                             </constraints>
                                                         </view>
@@ -251,13 +254,13 @@
                                                             <rect key="frame" x="0.0" y="69" width="304" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-fS-iTo">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="22"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiQ-Zw-pgy">
-                                                                    <rect key="frame" x="0.0" y="22" width="0.0" height="21.5"/>
+                                                                    <rect key="frame" x="0.0" y="22" width="284" height="21.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -268,23 +271,25 @@
                                                                 <constraint firstItem="eiv-fS-iTo" firstAttribute="leading" secondItem="x6B-Ij-Emb" secondAttribute="leading" id="1c1-bS-Npu"/>
                                                                 <constraint firstItem="eiv-fS-iTo" firstAttribute="height" secondItem="x6B-Ij-Emb" secondAttribute="height" multiplier="0.5" id="6Ip-09-Mdq"/>
                                                                 <constraint firstItem="hiQ-Zw-pgy" firstAttribute="leading" secondItem="x6B-Ij-Emb" secondAttribute="leading" id="Nde-vm-zAo"/>
+                                                                <constraint firstAttribute="trailing" secondItem="hiQ-Zw-pgy" secondAttribute="trailing" constant="20" id="OZP-NC-2hC"/>
                                                                 <constraint firstItem="hiQ-Zw-pgy" firstAttribute="height" secondItem="eiv-fS-iTo" secondAttribute="height" multiplier="0.981481" id="Vlb-AV-maZ"/>
                                                                 <constraint firstAttribute="height" constant="44" id="ZnG-pz-gte"/>
                                                                 <constraint firstItem="hiQ-Zw-pgy" firstAttribute="top" secondItem="eiv-fS-iTo" secondAttribute="bottom" id="baG-O4-e6b"/>
                                                                 <constraint firstItem="eiv-fS-iTo" firstAttribute="top" secondItem="x6B-Ij-Emb" secondAttribute="top" id="g9J-Kk-ZC0"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eiv-fS-iTo" secondAttribute="trailing" constant="20" id="oJH-Fo-Bif"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKe-Om-6nO" userLabel="AccountHolderView">
                                                             <rect key="frame" x="0.0" y="128" width="304" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASw-5p-51R">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="109.5" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="22"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-JD-6eB">
-                                                                    <rect key="frame" x="0.0" y="22" width="0.0" height="21.5"/>
+                                                                    <rect key="frame" x="0.0" y="22" width="284" height="21.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -295,10 +300,12 @@
                                                                 <constraint firstAttribute="height" constant="44" id="1Pv-kp-4Ef"/>
                                                                 <constraint firstItem="ASw-5p-51R" firstAttribute="leading" secondItem="PKe-Om-6nO" secondAttribute="leading" id="90b-ws-ReM"/>
                                                                 <constraint firstItem="ASw-5p-51R" firstAttribute="height" secondItem="PKe-Om-6nO" secondAttribute="height" multiplier="0.5" id="JXX-rX-4hY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ASw-5p-51R" secondAttribute="trailing" constant="20" id="KlF-tu-kvh"/>
                                                                 <constraint firstItem="ASw-5p-51R" firstAttribute="top" secondItem="PKe-Om-6nO" secondAttribute="top" id="OGj-FS-RNv"/>
                                                                 <constraint firstItem="tW2-JD-6eB" firstAttribute="leading" secondItem="PKe-Om-6nO" secondAttribute="leading" id="Zmy-qd-4hA"/>
                                                                 <constraint firstItem="tW2-JD-6eB" firstAttribute="top" secondItem="ASw-5p-51R" secondAttribute="bottom" id="gzS-Lu-W35"/>
                                                                 <constraint firstItem="tW2-JD-6eB" firstAttribute="height" secondItem="ASw-5p-51R" secondAttribute="height" multiplier="0.981481" id="mmp-yt-41U"/>
+                                                                <constraint firstAttribute="trailing" secondItem="tW2-JD-6eB" secondAttribute="trailing" constant="20" id="wew-UP-JuC"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -326,11 +333,11 @@
                                     <subviews>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv3-td-F9P" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                             <rect key="frame" x="20" y="29" width="374" height="71"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Make Transfer">
-                                                <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </buttonConfiguration>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Make Transfer">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="navigateTransferView:" destination="V0c-v0-fz2" eventType="touchUpInside" id="iw2-eY-NSI"/>
                                             </connections>
@@ -458,11 +465,11 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gse-uq-hen" userLabel="Transfer" customClass="RoundButton" customModule="HomeAssignmentIOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="770.5" width="374" height="71.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Transfer Now">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Transfer Now">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="transferAction:" destination="jlT-Fo-Dv9" eventType="touchUpInside" id="XLd-PU-cvm"/>
                                 </connections>

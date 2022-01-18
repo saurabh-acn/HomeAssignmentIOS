@@ -8,12 +8,14 @@
 import UIKit
 
 class TextInput: UIView {
+    
+    /// IBOutlet used
     @IBOutlet private weak var textInputBorderView: UIView!
     @IBOutlet weak var placeHolderLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet private weak var errorLabel: UILabel!
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
     }
     /// TextInput XIB name
@@ -33,14 +35,14 @@ class TextInput: UIView {
     /*Intialzies the control by deserializing it
      - parameter aDecoder the object to deserialize the control from
      */
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         // For use in Interface Builder
         super.init(coder: aDecoder)
         self.loadSubview()
         self.defaultSettings()
     }
     
-    public func loadSubview() {
+    func loadSubview() {
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth,
@@ -67,7 +69,7 @@ class TextInput: UIView {
 }
 
 extension UIView {
-    public func addViewBorder(borderColor: CGColor,
+    func addViewBorder(borderColor: CGColor,
                               borderWith: CGFloat,
                               borderCornerRadius: CGFloat) {
         self.layer.borderWidth = borderWith

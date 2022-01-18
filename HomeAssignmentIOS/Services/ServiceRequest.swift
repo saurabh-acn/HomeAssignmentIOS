@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Protocol used for configuration for service request
 protocol Endpoint {
     var httpMethod: ReuestType { get }
     var baseURLString: String { get }
@@ -15,22 +16,40 @@ protocol Endpoint {
     var body: [String: Any]? { get }
 }
 
-@objc protocol EndpopintAPICall {
-    @objc optional func register(username: String,
+/// Protocol used for different api call
+protocol EndpopintAPICall {
+    func register(username: String,
                                  password: String,
                                  completion: @escaping (Data?, URLResponse?, Error?) -> Void)
-    @objc optional func login(username: String,
+    func login(username: String,
                               password: String,
                               completion: @escaping (Data?, URLResponse?, Error?) -> Void)
-    @objc optional func transfer(receipient: String,
+    func transfer(receipient: String,
                                  amount: String,
                                  description: String,
                                  completion: @escaping (Data?, URLResponse?, Error?) -> Void)
-    @objc optional func transactions(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
-    @objc optional func balance(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
-    @objc optional func payees(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
+    func transactions(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
+    func balance(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
+    func payees(completion: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
+extension EndpopintAPICall {
+    func register(username: String,
+                                 password: String,
+                  completion: @escaping (Data?, URLResponse?, Error?) -> Void) {}
+    func login(username: String,
+                              password: String,
+               completion: @escaping (Data?, URLResponse?, Error?) -> Void) {}
+    func transfer(receipient: String,
+                                 amount: String,
+                                 description: String,
+             completion: @escaping (Data?, URLResponse?, Error?) -> Void) {}
+    func transactions(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {}
+    func balance(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {}
+    func payees(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {}
+}
+
+/// Configuration of URL
 extension Endpoint {
     // a default extension that creates the full URL
     var url: String {
@@ -48,6 +67,7 @@ enum StatusReponse: String {
     case failure = "failed"
 }
 
+/// Configuration of Endpoint for service request
 enum EndpointCases: Endpoint {
     case login(username: String,
                password: String)
@@ -136,6 +156,10 @@ class ServiceRequest {
     static let shared = ServiceRequest()
     private init() { }
     
+    /// Funciton to call servie request
+    /// - Parameters:
+    ///   - endpoint: instance of Endpoint wiht all config.
+    ///   - completion: Response from api
     func request(endpoint: Endpoint,
                  completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let session = URLSession.shared

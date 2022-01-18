@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIViewController {
+    
+    /// Function to add custom back button on navigaiton bar
     func addBackButton() {
         let backButton = UIButton(type: .custom)
         backButton.setImage(UIImage(named: Constants.backButtonImage),
@@ -39,7 +41,7 @@ extension UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    /// Function to add log out button on right side of navigaiton bar
     func addLogoutButton() {
         let backButton = UIButton(type: .custom)
         backButton.setTitle(Constants.logout,
@@ -76,6 +78,8 @@ extension UIViewController {
 }
 
 extension UIView {
+    
+    /// Function to show shadow on UIView
     func dropShadow() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 2, height: 3)
@@ -102,6 +106,13 @@ extension Numeric {
 }
 
 extension UIViewController {
+    
+    /// Function to show UIAlert View
+    /// - Parameters:
+    ///   - title: title
+    ///   - message: message
+    ///   - actionTitles: button names
+    ///   - actions: Array of action closure
     func popupAlert(title: String?,
                     message: String?,
                     actionTitles:[String?],

@@ -9,14 +9,18 @@ import UIKit
 import Security
 
 class LoginViewController: UIViewController {
+    
+    /// IBOutlet used
     @IBOutlet weak var usernameTextInput: TextInput!
     @IBOutlet weak var passwordTextInput: TextInput!
     @IBOutlet weak var loginButton: RoundButton!
     @IBOutlet weak var registerButton: RoundButton!
     @IBOutlet weak var errorView: CustomErrorView!
     
+    /// Variables used
     private var loginViewModel: LoginViewModel?
     
+    /// View Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel = LoginViewModel()
@@ -30,10 +34,12 @@ class LoginViewController: UIViewController {
         clearTextInputs()
     }
     
+    /// Funciton to setup UI
     func setupUI() {
         setUpTextfields()
     }
     
+    /// Funciton to setup textinputs
     func setUpTextfields() {
         usernameTextInput?.placeHolderLabel.text = Constants.username
         passwordTextInput?.placeHolderLabel.text = Constants.password
@@ -47,6 +53,21 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
     }
     
+    /// Funciton to set default state of screen
+    private func clearTextInputs() {
+        usernameTextInput?.textField.text = nil
+        passwordTextInput?.textField.text = nil
+        usernameTextInput?.errorString = nil
+        passwordTextInput?.errorString = nil
+        loginButton?.selectedState = false
+        registerButton?.selectedState = false
+        loginButton?.layoutSubviews()
+        registerButton?.layoutSubviews()
+        errorView?.errorString = nil
+        view.endEditing(true)
+    }
+    
+    /// Function to call login api after validation
     @IBAction func loginAction(_ sender: Any) {
         guard let viewModel = loginViewModel else { return }
         loginButton?.selectedState = true
@@ -62,6 +83,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    /// Funciton to navigte to registre screen
     @IBAction func registerAction(_ sender: Any) {
         registerButton?.selectedState = true
         loginButton?.selectedState = false
@@ -70,6 +92,7 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
+    /// Funciton to call login api
     private func aunthenticate() {
         guard let viewModel = loginViewModel else { return }
         guard let username = usernameTextInput.textField.text,
@@ -98,6 +121,10 @@ extension LoginViewController {
         }
     }
     
+    /// Fucniton to validate textinputs
+    /// - Parameters:
+    ///   - username: Instance of TextInput
+    ///   - password: Instance of TextInput
     func validateTextInputs(username: TextInput,
                             password: TextInput) {
         guard let viewModel = loginViewModel else { return }
@@ -116,20 +143,10 @@ extension LoginViewController {
         navigationController?.pushViewController(viewController,
                                                  animated: true)
     }
-    
-    private func clearTextInputs() {
-        usernameTextInput?.textField.text = nil
-        passwordTextInput?.textField.text = nil
-        loginButton?.selectedState = false
-        registerButton?.selectedState = false
-        loginButton?.layoutSubviews()
-        registerButton?.layoutSubviews()
-        errorView?.errorString = nil
-        view.endEditing(true)
-    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
+    /// Textfield delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switchBasedNextTextField(textField)
         return true

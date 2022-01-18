@@ -7,18 +7,23 @@
 
 import Foundation
 
+/// UserTransaction Model
 struct UserTransaction {
     let title: String
     let data: [Transaction]
 }
 
 class DashboardViewModel {
+    
+    /// Variable used
     private var transactionData: [Transaction] = []
     private var userTransactions: [UserTransaction] = []
     
+    /// Function to get transaction of user
+    /// - Parameter completion: closure to get response
     func getTransactions(completion: @escaping ([UserTransaction], String?) -> Void) {
         transactions { [weak self] data, response, error in
-            guard let self = self else { return }
+            guard let self = self else { return completion([], Constants.genericServerErrorMeesage) }
             if error == nil {
                 guard let data = data else { return }
                 do {
@@ -40,10 +45,12 @@ class DashboardViewModel {
         }
     }
     
+    /// Function to get balance
+    /// - Parameter completion: closure to get response
     func getBalance(completion: @escaping (BalanceModel?, String?) -> Void) {
         balance { data, response, error in
             if error == nil {
-                guard let data = data else { return }
+                guard let data = data else { return completion(nil, Constants.genericServerErrorMeesage)}
                 do {
                     let balanceData = try JSONDecoder().decode(BalanceModel.self,
                                                                from: data)
@@ -63,6 +70,9 @@ class DashboardViewModel {
         }
     }
     
+    /// Function to filter data array
+    /// - Parameter transactionArray: Array of Transaction
+    /// - Returns: Array of UserTransaction
     private func filterTransactionByDate(transactionArray: [Transaction]?) -> [UserTransaction] {
         userTransactions.removeAll()
         transactionData.removeAll()
@@ -104,6 +114,8 @@ class DashboardViewModel {
 }
 
 extension DashboardViewModel: EndpopintAPICall {
+    /// Funciton to call transactions APi
+    /// - Parameter completion: Closure to get response of api
     func transactions(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let endPoint = EndpointCases.transactions
         ServiceRequest.shared.request(endpoint: endPoint) { data, response, error in
@@ -111,6 +123,8 @@ extension DashboardViewModel: EndpopintAPICall {
         }
     }
     
+    /// Funciton to call balance APi
+    /// - Parameter completion: Closure to get response of api
     func balance(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let endPoint = EndpointCases.balance
         ServiceRequest.shared.request(endpoint: endPoint) { data, response, error in

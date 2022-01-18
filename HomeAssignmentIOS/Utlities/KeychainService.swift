@@ -10,6 +10,8 @@ import UIKit
 import Security
 
 class KeychainService {
+    
+    /// To save creds  in keychain
     class func saveCredentials(username: String,
                                password: String) {
         // Set username and password
@@ -31,6 +33,7 @@ class KeychainService {
         }
     }
     
+    /// To update creds  in keychain
     class func updateCredentials(username: String,
                                  password: String) {
         let newPassword = password.data(using: .utf8)!
@@ -52,6 +55,7 @@ class KeychainService {
         }
     }
     
+    /// To retrieve creds  in keychain
     class func retrieveCredentials(username: String) -> String? {
         // Set query
         let query: [String: Any] = [
@@ -80,6 +84,7 @@ class KeychainService {
         return nil
     }
     
+    /// To delete creds  in keychain
     class func deleteCredentials(username: String) {
         // Set query
         let query: [String: Any] = [
@@ -95,8 +100,10 @@ class KeychainService {
         }
     }
     
+    ///  To clear userinfo while logout
     class func logOut() {
-        if let username = UserDefaults.standard.string(forKey: Constants.username) {
+        if let username = KeychainService.retrieveCredentials(username: Constants.userKey) {
+            KeychainService.deleteCredentials(username: Constants.userKey)
             KeychainService.deleteCredentials(username: username+Constants.tokenKey)
             KeychainService.deleteCredentials(username: username+Constants.passwordKey)
         }
