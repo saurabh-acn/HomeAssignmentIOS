@@ -29,6 +29,8 @@ class LoginViewControllerTests: XCTestCase {
         userTextInput.textField?.text = ""
         XCTAssertNotNil(viewModel.validateTextInputs(textInput: userTextInput,
                                                      validationString: .passwordRequired))
+        
+        XCTAssertNotNil(loginVC.validateTextInputs(username: userTextInput, password: userTextInput))
     }
 
     override func tearDownWithError() throws {

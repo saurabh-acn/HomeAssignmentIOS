@@ -52,7 +52,8 @@ class LoginViewController: UIViewController {
         loginButton?.selectedState = true
         registerButton?.selectedState = false
         registerButton?.layoutSubviews()
-        validateTextInputs()
+        validateTextInputs(username: usernameTextInput,
+                           password: passwordTextInput)
         
         if viewModel.textInputValidationStatus {
             aunthenticate()
@@ -62,9 +63,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerAction(_ sender: Any) {
-        registerButton.selectedState = true
-        loginButton.selectedState = false
-        loginButton.layoutSubviews()
+        registerButton?.selectedState = true
+        loginButton?.selectedState = false
+        loginButton?.layoutSubviews()
     }
 }
 
@@ -97,11 +98,12 @@ extension LoginViewController {
         }
     }
     
-    private func validateTextInputs() {
+    func validateTextInputs(username: TextInput,
+                            password: TextInput) {
         guard let viewModel = loginViewModel else { return }
-        viewModel.validateTextInputs(textInput: usernameTextInput,
+        viewModel.validateTextInputs(textInput: username,
                                      validationString: .usernameRequired)
-        viewModel.validateTextInputs(textInput: passwordTextInput,
+        viewModel.validateTextInputs(textInput: password,
                                      validationString: .passwordRequired)
     }
     

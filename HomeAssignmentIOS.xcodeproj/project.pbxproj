@@ -69,6 +69,7 @@
 		86BD1B53279693030055156E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DEBD2127901ED90042F2D2 /* Main.storyboard */; };
 		86BD1B552796A54D0055156E /* DashboardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B542796A54D0055156E /* DashboardViewControllerTests.swift */; };
 		86BD1B572796A5600055156E /* TransferViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B562796A5600055156E /* TransferViewControllerTests.swift */; };
+		86BD1B592796CF8A0055156E /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B582796CF8A0055156E /* KeychainServiceTests.swift */; };
 		86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */; };
 		86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */; };
 		86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1F27901ED90042F2D2 /* LoginViewController.swift */; };
@@ -128,6 +129,7 @@
 		86BD1B51279690390055156E /* RegisterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerTests.swift; sourceTree = "<group>"; };
 		86BD1B542796A54D0055156E /* DashboardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewControllerTests.swift; sourceTree = "<group>"; };
 		86BD1B562796A5600055156E /* TransferViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewControllerTests.swift; sourceTree = "<group>"; };
+		86BD1B582796CF8A0055156E /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		86DEBD1827901ED90042F2D2 /* HomeAssignmentIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAssignmentIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				86BD1B51279690390055156E /* RegisterViewControllerTests.swift */,
 				86BD1B542796A54D0055156E /* DashboardViewControllerTests.swift */,
 				86BD1B562796A5600055156E /* TransferViewControllerTests.swift */,
+				86BD1B582796CF8A0055156E /* KeychainServiceTests.swift */,
 			);
 			path = HomeAssignmentIOSTests;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				86A672112795401900B2AD76 /* LoginModel.swift in Sources */,
 				86A6720427953F7D00B2AD76 /* Constants.swift in Sources */,
 				86A671B02792B55600B2AD76 /* RegisterModel.swift in Sources */,
+				86BD1B592796CF8A0055156E /* KeychainServiceTests.swift in Sources */,
 				86A672132795401900B2AD76 /* BalanceModel.swift in Sources */,
 				86A6724B27956D1500B2AD76 /* DashboardViewModel.swift in Sources */,
 				86BD1B552796A54D0055156E /* DashboardViewControllerTests.swift in Sources */,

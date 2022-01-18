@@ -16,7 +16,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var transferButton: RoundButton!
     
     private var dashboardViewModel: DashboardViewModel?
-    private var userTransactions: [UserTransaction] = []
+    var userTransactions: [UserTransaction] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
