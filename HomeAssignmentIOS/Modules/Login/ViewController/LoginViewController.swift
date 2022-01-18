@@ -30,17 +30,17 @@ class LoginViewController: UIViewController {
         clearTextInputs()
     }
     
-    private func setupUI() {
+    func setupUI() {
         setUpTextfields()
     }
     
-    private func setUpTextfields() {
-        usernameTextInput.placeHolderLabel.text = Constants.username
-        passwordTextInput.placeHolderLabel.text = Constants.password
-        usernameTextInput.textField.delegate = self
-        passwordTextInput.textField.delegate = self
-        usernameTextInput.textField.returnKeyType = .next
-        passwordTextInput.textField.isSecureTextEntry = true
+    func setUpTextfields() {
+        usernameTextInput?.placeHolderLabel.text = Constants.username
+        passwordTextInput?.placeHolderLabel.text = Constants.password
+        usernameTextInput?.textField.delegate = self
+        passwordTextInput?.textField.delegate = self
+        usernameTextInput?.textField.returnKeyType = .next
+        passwordTextInput?.textField.isSecureTextEntry = true
         
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(self.dismissKeyboard (_:)))
@@ -49,9 +49,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         guard let viewModel = loginViewModel else { return }
-        loginButton.selectedState = true
-        registerButton.selectedState = false
-        registerButton.layoutSubviews()
+        loginButton?.selectedState = true
+        registerButton?.selectedState = false
+        registerButton?.layoutSubviews()
         validateTextInputs()
         
         if viewModel.textInputValidationStatus {
@@ -116,13 +116,13 @@ extension LoginViewController {
     }
     
     private func clearTextInputs() {
-        usernameTextInput.textField.text = nil
-        passwordTextInput.textField.text = nil
-        loginButton.selectedState = false
-        registerButton.selectedState = false
-        loginButton.layoutSubviews()
-        registerButton.layoutSubviews()
-        errorView.errorString = nil
+        usernameTextInput?.textField.text = nil
+        passwordTextInput?.textField.text = nil
+        loginButton?.selectedState = false
+        registerButton?.selectedState = false
+        loginButton?.layoutSubviews()
+        registerButton?.layoutSubviews()
+        errorView?.errorString = nil
         view.endEditing(true)
     }
 }

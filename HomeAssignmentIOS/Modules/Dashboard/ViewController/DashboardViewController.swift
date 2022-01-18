@@ -27,7 +27,7 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        self.transferButton.isHidden = true
+        transferButton?.isHidden = true
         getBalance()
     }
     
@@ -39,24 +39,24 @@ class DashboardViewController: UIViewController {
     
     /// To Setup TableView
     private func setUpTableView() {
-        tableView.register(UINib(nibName: Constants.transactionCell,
+        tableView?.register(UINib(nibName: Constants.transactionCell,
                                  bundle: nil),
                            forCellReuseIdentifier: Constants.transactionCell)
-        tableView.layer.masksToBounds = false
-        tableView.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
-        tableView.layer.shadowOpacity = 1
-        tableView.layer.shadowRadius = 5
-        tableView.layer.shadowOffset = .init(width: 0, height: 5)
+        tableView?.layer.masksToBounds = false
+        tableView?.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
+        tableView?.layer.shadowOpacity = 1
+        tableView?.layer.shadowRadius = 5
+        tableView?.layer.shadowOffset = .init(width: 0, height: 5)
         
-        headerViewBackgroundView.clipsToBounds = true
-        headerViewBackgroundView.layer.cornerRadius = 20
-        headerViewBackgroundView.layer.maskedCorners = [.layerMaxXMinYCorner,
+        headerViewBackgroundView?.clipsToBounds = true
+        headerViewBackgroundView?.layer.cornerRadius = 20
+        headerViewBackgroundView?.layer.maskedCorners = [.layerMaxXMinYCorner,
                                                         .layerMaxXMaxYCorner]
-        headerViewBackgroundView.dropShadow()
+        headerViewBackgroundView?.dropShadow()
     }
     
     @IBAction func navigateTransferView(_ sender: Any) {
-        transferButton.selectedState = true
+        transferButton?.selectedState = true
         guard let viewController = TransferViewController.initializeFromStoryboard() else { return }
         navigationController?.pushViewController(viewController,
                                                  animated: true)
@@ -141,10 +141,10 @@ extension DashboardViewController {
         } else { return nil }
     }
     
-    private func setDefaultButtonConfig() {
-        transferButton.isHidden = false
-        transferButton.selectedState = false
-        transferButton.layoutSubviews()
+    func setDefaultButtonConfig() {
+        transferButton?.isHidden = false
+        transferButton?.selectedState = false
+        transferButton?.layoutSubviews()
     }
 }
 

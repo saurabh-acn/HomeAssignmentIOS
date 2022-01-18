@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="eNt-If-6wC">
             <objects>
-                <viewController id="SWP-h8-iDE" customClass="LoginViewController" customModule="HomeAssignmentIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SWP-h8-iDE" customClass="LoginViewController" customModule="HomeAssignmentIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcI-AH-VVa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

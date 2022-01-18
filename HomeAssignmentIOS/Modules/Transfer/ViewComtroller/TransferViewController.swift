@@ -38,22 +38,22 @@ class TransferViewController: UIViewController {
     private func setupUI() {
         addBackButton()
         setUpTextfields()
-        descriptionViewBackView.addViewBorder(borderColor: UIColor.black.cgColor,
+        descriptionViewBackView?.addViewBorder(borderColor: UIColor.black.cgColor,
                                               borderWith: 1.5,
                                               borderCornerRadius: 1.0)
         setUpPickerView()
     }
     
     private func setUpTextfields() {
-        payeeTextInput.placeHolderLabel.text = Constants.payeeText
-        amountTextInput.placeHolderLabel.text = Constants.amountText
-        amountTextInput.textField.keyboardType = .numberPad
-        payeeTextInput.textField.delegate = self
-        amountTextInput.textField.delegate = self
-        descriptionTextView.delegate = self
-        payeeTextInput.textField .inputView = itemPicker
-        payeeTextInput.textField.tintColor = .clear
-        payeeTextInput.textField.setLeftImage(imageName: Constants.downButtonImage)
+        payeeTextInput?.placeHolderLabel.text = Constants.payeeText
+        amountTextInput?.placeHolderLabel.text = Constants.amountText
+        amountTextInput?.textField.keyboardType = .numberPad
+        payeeTextInput?.textField.delegate = self
+        amountTextInput?.textField.delegate = self
+        descriptionTextView?.delegate = self
+        payeeTextInput?.textField .inputView = itemPicker
+        payeeTextInput?.textField.tintColor = .clear
+        payeeTextInput?.textField.setLeftImage(imageName: Constants.downButtonImage)
         
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(self.dismissKeyboard (_:)))
@@ -88,8 +88,8 @@ class TransferViewController: UIViewController {
                          animated: false)
         toolBar.isUserInteractionEnabled = true
         
-        payeeTextInput.textField.inputView = itemPicker
-        payeeTextInput.textField.inputAccessoryView = toolBar
+        payeeTextInput?.textField.inputView = itemPicker
+        payeeTextInput?.textField.inputAccessoryView = toolBar
     }
     
     @objc func doneTapped() {
@@ -155,7 +155,7 @@ extension TransferViewController {
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
-        amountTextInput.textField.inputAccessoryView = doneToolbar
+        amountTextInput?.textField.inputAccessoryView = doneToolbar
     }
     
     @objc func doneButtonAction(){

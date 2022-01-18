@@ -34,16 +34,16 @@ class RegisterViewController: UIViewController {
     }
     
     private func setUpTextfields() {
-        usernameTextInput.placeHolderLabel.text = Constants.username
-        passwordTextInput.placeHolderLabel.text = Constants.password
-        confirmTextInput.placeHolderLabel.text = Constants.confirmPassword
-        usernameTextInput.textField.delegate = self
-        passwordTextInput.textField.delegate = self
-        confirmTextInput.textField.delegate = self
-        usernameTextInput.textField.returnKeyType = .next
-        passwordTextInput.textField.returnKeyType = .next
-        passwordTextInput.textField.isSecureTextEntry = true
-        confirmTextInput.textField.isSecureTextEntry = true
+        usernameTextInput?.placeHolderLabel.text = Constants.username
+        passwordTextInput?.placeHolderLabel.text = Constants.password
+        confirmTextInput?.placeHolderLabel.text = Constants.confirmPassword
+        usernameTextInput?.textField.delegate = self
+        passwordTextInput?.textField.delegate = self
+        confirmTextInput?.textField.delegate = self
+        usernameTextInput?.textField.returnKeyType = .next
+        passwordTextInput?.textField.returnKeyType = .next
+        passwordTextInput?.textField.isSecureTextEntry = true
+        confirmTextInput?.textField.isSecureTextEntry = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -64,9 +64,9 @@ class RegisterViewController: UIViewController {
     }
     
     private func clearTextInputs() {
-        usernameTextInput.textField.text = nil
-        passwordTextInput.textField.text = nil
-        confirmTextInput.textField.text = nil
+        usernameTextInput?.textField.text = nil
+        passwordTextInput?.textField.text = nil
+        confirmTextInput?.textField.text = nil
     }
 }
 

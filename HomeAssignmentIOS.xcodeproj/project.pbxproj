@@ -62,6 +62,13 @@
 		86A672692795CAF500B2AD76 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672662795CAF500B2AD76 /* TransferModel.swift */; };
 		86A6726A2795CAF500B2AD76 /* PayeesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672672795CAF500B2AD76 /* PayeesModel.swift */; };
 		86A6726B2795CAF500B2AD76 /* PayeesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A672672795CAF500B2AD76 /* PayeesModel.swift */; };
+		86BD1B4A27968D410055156E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1F27901ED90042F2D2 /* LoginViewController.swift */; };
+		86BD1B4B27968D680055156E /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675A2E62795F041004B4F43 /* KeychainService.swift */; };
+		86BD1B5027968F9F0055156E /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B4F27968F9F0055156E /* LoginViewControllerTests.swift */; };
+		86BD1B52279690390055156E /* RegisterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B51279690390055156E /* RegisterViewControllerTests.swift */; };
+		86BD1B53279693030055156E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DEBD2127901ED90042F2D2 /* Main.storyboard */; };
+		86BD1B552796A54D0055156E /* DashboardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B542796A54D0055156E /* DashboardViewControllerTests.swift */; };
+		86BD1B572796A5600055156E /* TransferViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD1B562796A5600055156E /* TransferViewControllerTests.swift */; };
 		86DEBD1C27901ED90042F2D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */; };
 		86DEBD1E27901ED90042F2D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */; };
 		86DEBD2027901ED90042F2D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEBD1F27901ED90042F2D2 /* LoginViewController.swift */; };
@@ -117,6 +124,10 @@
 		86A672632795C68F00B2AD76 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		86A672662795CAF500B2AD76 /* TransferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
 		86A672672795CAF500B2AD76 /* PayeesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayeesModel.swift; sourceTree = "<group>"; };
+		86BD1B4F27968F9F0055156E /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		86BD1B51279690390055156E /* RegisterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerTests.swift; sourceTree = "<group>"; };
+		86BD1B542796A54D0055156E /* DashboardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewControllerTests.swift; sourceTree = "<group>"; };
+		86BD1B562796A5600055156E /* TransferViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewControllerTests.swift; sourceTree = "<group>"; };
 		86DEBD1827901ED90042F2D2 /* HomeAssignmentIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAssignmentIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DEBD1B27901ED90042F2D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DEBD1D27901ED90042F2D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -388,6 +399,10 @@
 			isa = PBXGroup;
 			children = (
 				86DEBD3227901EDC0042F2D2 /* HomeAssignmentIOSTests.swift */,
+				86BD1B4F27968F9F0055156E /* LoginViewControllerTests.swift */,
+				86BD1B51279690390055156E /* RegisterViewControllerTests.swift */,
+				86BD1B542796A54D0055156E /* DashboardViewControllerTests.swift */,
+				86BD1B562796A5600055156E /* TransferViewControllerTests.swift */,
 			);
 			path = HomeAssignmentIOSTests;
 			sourceTree = "<group>";
@@ -512,6 +527,7 @@
 				86A6722E27955CDB00B2AD76 /* CustomErrorView.xib in Resources */,
 				8684BF2C279179F500BDABF0 /* TextInput.xib in Resources */,
 				86A672532795708800B2AD76 /* TransactionCell.xib in Resources */,
+				86BD1B53279693030055156E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +587,7 @@
 				86A671B02792B55600B2AD76 /* RegisterModel.swift in Sources */,
 				86A672132795401900B2AD76 /* BalanceModel.swift in Sources */,
 				86A6724B27956D1500B2AD76 /* DashboardViewModel.swift in Sources */,
+				86BD1B552796A54D0055156E /* DashboardViewControllerTests.swift in Sources */,
 				86A6724127956B3900B2AD76 /* UIViewController+Extensions.swift in Sources */,
 				86A6726B2795CAF500B2AD76 /* PayeesModel.swift in Sources */,
 				86A6724727956CF500B2AD76 /* DashboardViewController.swift in Sources */,
@@ -578,6 +595,7 @@
 				86A672612795C67900B2AD76 /* TransferViewController.swift in Sources */,
 				86A6723E27956AEB00B2AD76 /* RegisterViewModel.swift in Sources */,
 				8684BF3027917D8D00BDABF0 /* RoundButton.swift in Sources */,
+				86BD1B52279690390055156E /* RegisterViewControllerTests.swift in Sources */,
 				86A672512795708800B2AD76 /* TransactionCell.swift in Sources */,
 				86A671B32792B58F00B2AD76 /* LoginViewModel.swift in Sources */,
 				86A671AA2792B4BE00B2AD76 /* ServiceRequest.swift in Sources */,
@@ -585,9 +603,13 @@
 				86A671B92792BABD00B2AD76 /* UITextField+Extensions.swift in Sources */,
 				86A672652795C68F00B2AD76 /* TransferViewModel.swift in Sources */,
 				86A6723A2795687200B2AD76 /* RegisterViewController.swift in Sources */,
+				86BD1B572796A5600055156E /* TransferViewControllerTests.swift in Sources */,
 				86DEBD3327901EDC0042F2D2 /* HomeAssignmentIOSTests.swift in Sources */,
 				8684BF2A279179F500BDABF0 /* TextInput.swift in Sources */,
+				86BD1B4B27968D680055156E /* KeychainService.swift in Sources */,
+				86BD1B5027968F9F0055156E /* LoginViewControllerTests.swift in Sources */,
 				86A671BC2792BCCA00B2AD76 /* Spinner.swift in Sources */,
+				86BD1B4A27968D410055156E /* LoginViewController.swift in Sources */,
 				86A672692795CAF500B2AD76 /* TransferModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
